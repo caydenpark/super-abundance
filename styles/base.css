@@ -1,7 +1,17 @@
+
+table {
+  margin: auto;
+  border: 0.11rem solid black;
+  border-collapse: collapse;
+  border-bottom-left-radius: 25px;
+  width: 60%;
+}
+
 caption {
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 2rem;
-  border: 1px solid black;
+  border: 0.11rem solid black;
   border-bottom: none;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -13,21 +23,17 @@ form {
   padding: 2rem;
 }
 
-table {
-  margin: auto;
-  border: 1px solid black;
-  border-bottom-left-radius: 25px;
-  width: 60%;
-}
-
-table,
 th,
 td {
   border-collapse: collapse;
+  text-align: center;
+  padding: 12px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
 }
 
-tr:nth-child(7){
-    border-bottom: 1px solid black;
+tr:nth-child(7) {
+  border-bottom: 0.11rem solid black;
 }
 
 .input {
@@ -46,23 +52,15 @@ tr:nth-child(even) {
   background-color: rgba(235, 235, 235, 0.596);
 }
 
-th,
-td {
-  text-align: center;
-  padding: 12px;
-  font-size: 17px;
-}
-
 th:nth-child(n + 4) {
   border-bottom: 1px solid black;
 }
 
 td:first-child {
+  font-family: 'Roboto', sans-serif;
   text-align: right;
-  font-weight: bold;
 }
 
-
 .levels {
-  border-bottom: 1px solid black;
+  border-bottom: 0.1px solid black;
 }
