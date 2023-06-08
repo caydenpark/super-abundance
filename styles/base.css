@@ -1,0 +1,68 @@
+caption {
+  font-weight: bold;
+  font-size: 2rem;
+  border: 1px solid black;
+  border-bottom: none;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+form {
+  padding: 2rem;
+}
+
+table {
+  margin: auto;
+  border: 1px solid black;
+  border-bottom-left-radius: 25px;
+  width: 60%;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+}
+
+tr:nth-child(7){
+    border-bottom: 1px solid black;
+}
+
+.input {
+  background-color: rgb(249, 244, 83);
+  border: 1px solid black;
+}
+
+input {
+  background-color: rgb(249, 244, 83);
+  border: none;
+  text-align: center;
+  font-size: 17px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(235, 235, 235, 0.596);
+}
+
+th,
+td {
+  text-align: center;
+  padding: 12px;
+  font-size: 17px;
+}
+
+th:nth-child(n + 4) {
+  border-bottom: 1px solid black;
+}
+
+td:first-child {
+  text-align: right;
+  font-weight: bold;
+}
+
+
+.levels {
+  border-bottom: 1px solid black;
+}

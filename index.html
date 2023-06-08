@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abundance Calculator</title>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/larger.css" />
+  </head>
+  <body>
+    <main>
+      <form>
+        <table>
+          <caption>Abundance Calculator</caption>
+          <thead>
+            <tr>
+              <th></th>
+              <th</th>
+              <th class="column">Start</th>
+              <th class="column">End</th>
+              <th class="column">Change</th>
+              <th class="column stackWords">Percentage Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Year</td>
+              <td class="input">
+                <input type="number" id="startYear" />
+              </td>
+              <td class="input">
+                <input type="number" id="endYear" />
+              </td>
+              <td id="yearChange"></td>
+              <td><button>Calculate</button></td>
+            </tr>
+            <tr>
+              <td>Price</td>
+              <td class="input">
+                <input type="number" id="startPrice" />
+              </td>
+              <td class="input">
+                <input type="number" id="endPrice" />
+              </td>
+              <td id="priceChange"></td>
+              <td id="percentageChange"></td>
+            </tr>
+            <tr>
+              <td>Hourly Compensation</td>
+              <td class="input">
+                <input type="number" id="startComp" />
+              </td>
+              <td class="input">
+                <input type="number" id="endComp" />
+              </td>
+              <td id="compChange"></td>
+              <td id="percentageCompChange"></td>
+            </tr>
+            <tr>
+              <td>Population</td>
+              <td class="input">
+                <input type="number" id="startPop" />
+              </td>
+              <td class="input">
+                <input type="number" id="endPop" />
+              </td>
+              <td id="popChange"></td>
+              <td id="percentagePopChange"></td>
+            </tr>
+            <tr>
+              <td>Time Price</td>
+              <td id="startTimePrice"></td>
+              <td id="endTimePrice"></td>
+              <td id="timePriceChange"></td>
+              <td id="timePricePercentageChange"></td>
+            </tr>
+            <tr>
+              <td>Personal-Level Multiplier</td>
+              <td id="personalMultiplierStart"></td>
+              <td id="personalMultiplierEnd"></td>
+              <td id="personalMultiplierChange"></td>
+              <td id="personalMultiplierPercentageChange"></td>
+            </tr>
+            <tr>
+              <td>Population-Level Multiplier</td>
+              <td id="populationMultiplierStart"></td>
+              <td id="populationMultiplierEnd"></td>
+              <td id="populationMultiplierChange"></td>
+              <td id="populationMultiplierPercentageChange"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <th class="levels">Personal-Level</th>
+              <th class="levels">Population-Level</th>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Compound Annual Growth Rate</td>
+              <td id="personalGrowthRate"></td>
+              <td id="populationGrowthRate"></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Years to Double</td>
+              <td id="personalDoubleYears"></td>
+              <td id="populationDoubleYears"></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Elasticity of Population</td>
+              <td id="personalElasticity"></td>
+              <td id="populationElasticity"></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </main>
+    <script src="scripts/calculations.js"></script>
+  </body>
+</html>
