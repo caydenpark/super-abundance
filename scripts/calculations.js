@@ -3,6 +3,8 @@ document.querySelector('button').addEventListener('click', (event) => {
     performCaculations();
 });
 
+document.getElementById("clear").onclick = function() {clear()};
+
 // function NPER(rate, payment, present) {
 //     // Return number of periods
 //     const num = payment * (1 + rate ) * rate;
@@ -99,4 +101,42 @@ function performCaculations() {
 
     document.getElementById("personalElasticity").innerHTML = personalElasticity.toFixed(2);
     document.getElementById("populationElasticity").innerHTML = populationElasticity.toFixed(2);
+}
+
+function clear()
+{
+    document.getElementById("yearChange").innerHTML = null;
+    
+    document.getElementById("priceChange").innerHTML = null;
+    document.getElementById("percentageChange").innerHTML = null;
+    
+    document.getElementById("compChange").innerHTML = null;
+    document.getElementById("percentageCompChange").innerHTML = null;
+    
+    document.getElementById("popChange").innerHTML = null;
+    document.getElementById("percentagePopChange").innerHTML = null;
+   
+    document.getElementById("startTimePrice").innerHTML = null;
+    document.getElementById("endTimePrice").innerHTML = null;
+    document.getElementById("timePriceChange").innerHTML = null;
+    document.getElementById("timePricePercentageChange").innerHTML = null;
+    
+    document.getElementById("personalMultiplierStart").innerHTML = null;
+    document.getElementById("personalMultiplierEnd").innerHTML = null;
+    document.getElementById("personalMultiplierChange").innerHTML = null;
+    document.getElementById("personalMultiplierPercentageChange").innerHTML = null;
+
+    document.getElementById("populationMultiplierStart").innerHTML = null;
+    document.getElementById("populationMultiplierEnd").innerHTML = null;
+    document.getElementById("populationMultiplierChange").innerHTML = null;
+    document.getElementById("populationMultiplierPercentageChange").innerHTML = null;
+
+    document.getElementById("personalGrowthRate").innerHTML = null;
+    document.getElementById("populationGrowthRate").innerHTML = null;
+
+    document.getElementById("personalDoubleYears").innerHTML = null;
+    document.getElementById("populationDoubleYears").innerHTML = null;
+
+    document.getElementById("personalElasticity").innerHTML = null;
+    document.getElementById("populationElasticity").innerHTML = null;
 }
