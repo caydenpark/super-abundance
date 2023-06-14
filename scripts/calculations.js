@@ -3,14 +3,10 @@ document.querySelector('button').addEventListener('click', (event) => {
     performCaculations();
 });
 
-document.getElementById("clear").onclick = function() {clear()};
+// document.querySelector('button').addEventListener('change', (event))
+var calculateCounter = 1
 
-// function NPER(rate, payment, present) {
-//     // Return number of periods
-//     const num = payment * (1 + rate ) * rate;
-//     const den = (present * rate + payment * (1 + rate));
-//     return Math.log(num / den) / Math.log(1 + rate);
-//   }
+document.getElementById("clear").onclick = function() {clear()};
 
 function performCaculations() {
     // Year
@@ -101,6 +97,13 @@ function performCaculations() {
 
     document.getElementById("personalElasticity").innerHTML = personalElasticity.toFixed(2);
     document.getElementById("populationElasticity").innerHTML = populationElasticity.toFixed(2);
+
+    calculateCounter ++;
+}
+
+while (calculateCounter >= 1)
+{
+    document.querySelector('button').addEventListener('change', performCaculations)
 }
 
 function clear()
