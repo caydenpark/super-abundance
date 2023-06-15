@@ -1,14 +1,11 @@
-document.querySelector('button').addEventListener('click', (event) => {
-    event.preventDefault();
-    performCaculations();
-});
-
-// document.querySelector('button').addEventListener('change', (event))
-var calculateCounter = 1
+// document.querySelector('button').addEventListener('click', (event) => {
+//     event.preventDefault();
+//     performCaculations();
+// });
 
 document.getElementById("clear").onclick = function() {clear()};
 
-function performCaculations() {
+function performCalculations() {
     // Year
     var startYear = document.getElementById("startYear").value;
     var endYear = document.getElementById("endYear").value;
@@ -97,49 +94,42 @@ function performCaculations() {
 
     document.getElementById("personalElasticity").innerHTML = personalElasticity.toFixed(2);
     document.getElementById("populationElasticity").innerHTML = populationElasticity.toFixed(2);
-
-    calculateCounter ++;
-}
-
-while (calculateCounter >= 1)
-{
-    document.querySelector('button').addEventListener('change', performCaculations)
 }
 
 function clear()
 {
-    document.getElementById("yearChange").innerHTML = null;
+    document.getElementById("yearChange").innerHTML = "----";
     
-    document.getElementById("priceChange").innerHTML = null;
-    document.getElementById("percentageChange").innerHTML = null;
+    document.getElementById("priceChange").innerHTML = "----"
+    document.getElementById("percentageChange").innerHTML = "----";
     
-    document.getElementById("compChange").innerHTML = null;
-    document.getElementById("percentageCompChange").innerHTML = null;
+    document.getElementById("compChange").innerHTML = "----";
+    document.getElementById("percentageCompChange").innerHTML = "----";
     
-    document.getElementById("popChange").innerHTML = null;
-    document.getElementById("percentagePopChange").innerHTML = null;
+    document.getElementById("popChange").innerHTML = "----";
+    document.getElementById("percentagePopChange").innerHTML = "----";
    
-    document.getElementById("startTimePrice").innerHTML = null;
-    document.getElementById("endTimePrice").innerHTML = null;
-    document.getElementById("timePriceChange").innerHTML = null;
-    document.getElementById("timePricePercentageChange").innerHTML = null;
+    document.getElementById("startTimePrice").innerHTML = "----";
+    document.getElementById("endTimePrice").innerHTML = "----";
+    document.getElementById("timePriceChange").innerHTML = "----";
+    document.getElementById("timePricePercentageChange").innerHTML = "----";
     
-    document.getElementById("personalMultiplierStart").innerHTML = null;
-    document.getElementById("personalMultiplierEnd").innerHTML = null;
-    document.getElementById("personalMultiplierChange").innerHTML = null;
-    document.getElementById("personalMultiplierPercentageChange").innerHTML = null;
+    document.getElementById("personalMultiplierStart").innerHTML = "----";
+    document.getElementById("personalMultiplierEnd").innerHTML = "----";
+    document.getElementById("personalMultiplierChange").innerHTML = "----";
+    document.getElementById("personalMultiplierPercentageChange").innerHTML = "----";
 
-    document.getElementById("populationMultiplierStart").innerHTML = null;
-    document.getElementById("populationMultiplierEnd").innerHTML = null;
-    document.getElementById("populationMultiplierChange").innerHTML = null;
-    document.getElementById("populationMultiplierPercentageChange").innerHTML = null;
+    document.getElementById("populationMultiplierStart").innerHTML = "----";
+    document.getElementById("populationMultiplierEnd").innerHTML = "----";
+    document.getElementById("populationMultiplierChange").innerHTML = "----";
+    document.getElementById("populationMultiplierPercentageChange").innerHTML = "----";
 
-    document.getElementById("personalGrowthRate").innerHTML = null;
-    document.getElementById("populationGrowthRate").innerHTML = null;
+    document.getElementById("personalGrowthRate").innerHTML = "----";
+    document.getElementById("populationGrowthRate").innerHTML = "----";
 
-    document.getElementById("personalDoubleYears").innerHTML = null;
-    document.getElementById("populationDoubleYears").innerHTML = null;
+    document.getElementById("personalDoubleYears").innerHTML = "----";
+    document.getElementById("populationDoubleYears").innerHTML = "----";
 
-    document.getElementById("personalElasticity").innerHTML = null;
-    document.getElementById("populationElasticity").innerHTML = null;
+    document.getElementById("personalElasticity").innerHTML = "----";
+    document.getElementById("populationElasticity").innerHTML = "----";
 }

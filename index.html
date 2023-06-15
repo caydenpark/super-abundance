@@ -27,67 +27,67 @@
             <tr>
               <td>Year</td>
               <td class="input">
-                <input type="number" id="startYear" />
+                <input type="number" id="startYear" onkeyup="performCalculations()"required />
               </td>
               <td class="input">
-                <input type="number" id="endYear" />
+                <input type="number" id="endYear" onkeyup="performCalculations()" required />
               </td>
-              <td id="yearChange"></td>
+              <td id="yearChange">----</td>
               <td></td>
             </tr>
             <tr>
               <td>Price</td>
               <td class="input">
-                <input type="number" id="startPrice" />
+                <input type="number" id="startPrice" onkeyup="performCalculations()" required />
               </td>
               <td class="input">
-                <input type="number" id="endPrice" />
+                <input type="number" id="endPrice" onkeyup="performCalculations()" required />
               </td>
-              <td id="priceChange"></td>
-              <td id="percentageChange"></td>
+              <td id="priceChange">----</td>
+              <td id="percentageChange">----</td>
             </tr>
             <tr>
               <td>Hourly Compensation</td>
               <td class="input">
-                <input type="number" id="startComp" />
+                <input type="number" id="startComp" onkeyup="performCalculations()" required />
               </td>
               <td class="input">
-                <input type="number" id="endComp" />
+                <input type="number" id="endComp" onkeyup="performCalculations()" required />
               </td>
-              <td id="compChange"></td>
-              <td id="percentageCompChange"></td>
+              <td id="compChange">----</td>
+              <td id="percentageCompChange">----</td>
             </tr>
             <tr>
               <td>Population</td>
               <td class="input">
-                <input type="number" id="startPop" />
+                <input type="number" id="startPop" onkeyup="performCalculations()" required />
               </td>
               <td class="input">
-                <input type="number" id="endPop" />
+                <input type="number" id="endPop" onkeyup="performCalculations()" required />
               </td>
-              <td id="popChange"></td>
-              <td id="percentagePopChange"></td>
+              <td id="popChange">----</td>
+              <td id="percentagePopChange">----</td>
             </tr>
             <tr>
               <td>Time Price</td>
-              <td id="startTimePrice"></td>
-              <td id="endTimePrice"></td>
-              <td id="timePriceChange"></td>
-              <td id="timePricePercentageChange"></td>
+              <td id="startTimePrice">----</td>
+              <td id="endTimePrice">----</td>
+              <td id="timePriceChange">----</td>
+              <td id="timePricePercentageChange">----</td>
             </tr>
             <tr>
               <td>Personal-Level Multiplier</td>
-              <td id="personalMultiplierStart"></td>
-              <td id="personalMultiplierEnd"></td>
-              <td id="personalMultiplierChange"></td>
-              <td id="personalMultiplierPercentageChange"></td>
+              <td id="personalMultiplierStart">----</td>
+              <td id="personalMultiplierEnd">----</td>
+              <td id="personalMultiplierChange">----</td>
+              <td id="personalMultiplierPercentageChange">----</td>
             </tr>
             <tr>
               <td>Population-Level Multiplier</td>
-              <td id="populationMultiplierStart"></td>
-              <td id="populationMultiplierEnd"></td>
-              <td id="populationMultiplierChange"></td>
-              <td id="populationMultiplierPercentageChange"></td>
+              <td id="populationMultiplierStart">----</td>
+              <td id="populationMultiplierEnd">----</td>
+              <td id="populationMultiplierChange">----</td>
+              <td id="populationMultiplierPercentageChange">----</td>
             </tr>
             <tr>
               <td></td>
@@ -98,25 +98,23 @@
             </tr>
             <tr>
               <td>Compound Annual Growth Rate</td>
-              <td id="personalGrowthRate"></td>
-              <td id="populationGrowthRate"></td>
+              <td id="personalGrowthRate">----</td>
+              <td id="populationGrowthRate">----</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <td>Years to Double</td>
-              <td id="personalDoubleYears"></td>
-              <td id="populationDoubleYears"></td>
+              <td id="personalDoubleYears">----</td>
+              <td id="populationDoubleYears">----</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <td>Elasticity of Population</td>
-              <td id="personalElasticity"></td>
-              <td id="populationElasticity"></td>
-              <td>
-                <button type="submit">Calculate</button>
-              </td>
+              <td id="personalElasticity">----</td>
+              <td id="populationElasticity">----</td>
+              <td></td>
               <td>
                 <button class="clear" type="reset" id="clear">Clear</button>
               </td>
