@@ -5,6 +5,10 @@
 
 document.getElementById("clear").onclick = function() {clear()};
 
+function getWages() {
+
+}
+
 function performCalculations() {
     // Year
     var startYear = document.getElementById("startYear").value;

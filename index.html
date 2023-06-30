@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/larger.css" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧮</text></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <main>
@@ -48,7 +49,15 @@
               <td id="percentageChange">----</td>
             </tr>
             <tr>
-              <td>Hourly Compensation</td>
+              <td class="dropDown">
+                <label for="dropDownWages">Hourly Compensation:</label>
+                <select name="dropDownWages" id="dropDownWages">
+                <option value="Custom Wage">Custom Wage</option>
+                <option value="U.S. Blue Collar">U.S. Blue Collar</option>
+                <option value="U.S. Unskilled">U.S. Unskilled</option>
+                <option value="UK Wages">UK Wages</option>
+              </select>
+              </td>
               <td class="input">
                 <input type="number" id="startComp" onkeyup="performCalculations()" required />
               </td>
@@ -59,7 +68,14 @@
               <td id="percentageCompChange">----</td>
             </tr>
             <tr>
-              <td>Population</td>
+              <td class="dropDown">
+                <label for="dropDownPopulation">Population:</label>
+                <select name="dropDownPopulation" id="dropDownPopulation">
+                  <option value="Custom Population">Custom Population</option>
+                  <option value="U.S.">U.S.</option>
+                  <option value="World">World</option>
+                </select>
+              </td>
               <td class="input">
                 <input type="number" id="startPop" onkeyup="performCalculations()" required />
               </td>
@@ -77,14 +93,24 @@
               <td id="timePricePercentageChange">----</td>
             </tr>
             <tr>
-              <td>Personal-Level Multiplier</td>
+              <td>
+                <i class="fa fa-info-circle tooltip">
+                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
+                </i>
+                Personal-Level Multiplier
+              </td>
               <td id="personalMultiplierStart">----</td>
               <td id="personalMultiplierEnd">----</td>
               <td id="personalMultiplierChange">----</td>
               <td id="personalMultiplierPercentageChange">----</td>
             </tr>
             <tr>
-              <td>Population-Level Multiplier</td>
+              <td>
+                <i class="fa fa-info-circle tooltip">
+                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
+                </i>
+                Population-Level Multiplier
+              </td>
               <td id="populationMultiplierStart">1</td>
               <td id="populationMultiplierEnd">----</td>
               <td id="populationMultiplierChange">----</td>
@@ -98,21 +124,36 @@
               <td></td>
             </tr>
             <tr>
-              <td>Compound Annual Growth Rate</td>
+              <td>
+                <i class="fa fa-info-circle tooltip">
+                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
+                </i>
+                Compound Annual Growth Rate
+              </td>
               <td id="personalGrowthRate">----</td>
               <td id="populationGrowthRate">----</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td>Years to Double</td>
+              <td>
+                <i class="fa fa-info-circle tooltip">
+                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
+                </i>
+                Years to Double
+              </td>
               <td id="personalDoubleYears">----</td>
               <td id="populationDoubleYears">----</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td>Elasticity of Population</td>
+              <td>
+                <i class="fa fa-info-circle tooltip">
+                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
+                </i>
+                Elasticity of Population
+              </td>
               <td id="personalElasticity">----</td>
               <td id="populationElasticity">----</td>
               <td></td>
@@ -123,6 +164,12 @@
           </tbody>
         </table>
       </form>
+      <!-- <div id="coordinates">
+        <div id="graph">
+            <div class="box" id="red"><span>1980</span></div>
+            <div class="box" id="green"><span>2020</span></div>
+        </div>
+    </div> -->
     </main>
     <script src="scripts/calculations.js"></script>
   </body>

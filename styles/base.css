@@ -51,13 +51,20 @@ tr:nth-child(7) {
   border-bottom: 0.11rem solid black;
 }
 
+#startComp,
+#endComp,
+#startPop,
+#endPop {
+  height: 45px;
+}
+
 input {
   background-color: rgb(249, 244, 83);
   border: .11rem solid black;
   text-align: center;
   font-size: 17px;
   width: 90%;
-  height: 50%;
+  height: 25px;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -92,4 +99,36 @@ button {
 
 .clear {
   width: 60%;
+}
+
+select {
+  margin-top: 5px;
+}
+
+.fa {
+  padding-right: 3px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: rgb(156, 156, 156);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px; /* Use half of width to center */
+  margin-bottom: 8px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
