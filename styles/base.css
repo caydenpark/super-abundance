@@ -103,6 +103,8 @@ button {
 
 select {
   margin-top: 5px;
+  border-radius: 5px;
+
 }
 
 .tooltip {
