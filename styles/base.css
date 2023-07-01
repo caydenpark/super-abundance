@@ -131,7 +131,7 @@ select {
 }
 
 i {
-  border: 2px solid black;
+  border: 1.5px solid black;
   border-radius: 50%;
   width: 14px;
   height: 13px;
