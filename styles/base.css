@@ -105,13 +105,9 @@ select {
   margin-top: 5px;
 }
 
-.fa {
-  padding-right: 3px;
-}
-
 .tooltip {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .tooltip .tooltiptext {
@@ -131,4 +127,15 @@ select {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+  font-size: 18px;
+}
+
+i {
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 14px;
+  height: 13px;
+  text-align: center;
+  position: relative;
+  padding-top: 2px;
 }
