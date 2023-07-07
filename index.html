@@ -14,7 +14,7 @@
   <body>
     <main>
       <form>
-        <table style="width:100%">
+        <table style="width:100%" id="table1">
           <caption>Abundance Calculator</caption>
           <thead>
             <tr>
@@ -22,14 +22,14 @@
               <th>Start</th>
               <th>End</th>
               <th>Change</th>
-              <th>Percentage Change</th> 
+              <th>Percentage Change</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Year</td>
               <td class="input">
-                <input type="number" id="startYear" onkeyup="performCalculations()"required />
+                <input type="number" id="startYear" onkeyup="performCalculations()" required />
               </td>
               <td class="input">
                 <input type="number" id="endYear" onkeyup="performCalculations()" required />
@@ -40,7 +40,7 @@
             <tr>
               <td>Nominal Price</td>
               <td class="input">
-                <input type="text" id="startPrice" onkeyup="performCalculations()" required />
+                <input type="number" id="startPrice" onkeyup="performCalculations()" required />
               </td>
               <td class="input">
                 <input type="number" id="endPrice" onkeyup="performCalculations()" required />
@@ -51,12 +51,12 @@
             <tr>
               <td class="dropDown">
                 <label for="dropDownWages">Hourly Compensation:</label>
-                <select name="dropDownWages" id="dropDownWages">
+                <select name="dropDownWages" id="dropDownWages" onchange="getHourlyComp()">
                 <option value="Custom Wage">Custom Wage</option>
                 <option value="U.S. Blue Collar">U.S. Blue Collar</option>
                 <option value="U.S. Unskilled">U.S. Unskilled</option>
                 <option value="U.S. Unskilled">U.S. Upskilling</option>
-                <option value="UK Wages">UK Wages</option>
+                <option value="UK Wages">U.K. Wage</option>
               </select>
               </td>
               <td class="input">
@@ -90,7 +90,7 @@
             <tr>
               <td class="dropDown">
                 <label for="dropDownPopulation">Population:</label>
-                <select name="dropDownPopulation" id="dropDownPopulation">
+                <select name="dropDownPopulation" id="dropDownPopulation" onchange="getHourlyComp()">
                   <option value="Custom Population">Custom Population</option>
                   <option value="U.S.">U.S.</option>
                   <option value="World">World</option>
@@ -117,51 +117,95 @@
               <td id="populationMultiplierChange">----</td>
               <td id="populationMultiplierPercentageChange">----</td>
             </tr>
-            <tr>
-              <td></td>
-              <th class="levels">Personal-Level</th>
-              <th class="levels">Population-Level</th>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="tooltip">
-                <i class="fa fa-info" style="font-size:11px">
-                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
-                </i>
-                Compound Annual Growth Rate
+            <table style="width:100%" id="table2">
+              <td id="leftTable">
+                <table>
+                  <tr>
+                    <td>
+                      + --- %
+                    </td>
+                    <td rowspan="3" id="boxes">
+                      <div id="greenBox"><span>1980</span></div>
+                      <div id="redBox"><span>1980</span></div>
+                    </td>
+                    <td>
+                      <p>Population Resource Abundance</p>
+                      <p> + --- %</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Personal Resource Abundance</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <p>Start Year</p>
+                      <p>End Year</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      Population + -- %
+                    </td>
+                    <td></td>
+                  </tr>
+                </table>
               </td>
-              <td id="personalGrowthRate">----</td>
-              <td id="populationGrowthRate">----</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="tooltip">
-                <i class="fa fa-info" style="font-size:11px">
-                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
-                </i>
-                Years to Double
+              <td id="rightTable">
+                <table>
+                  <tr>
+                    <td></td>
+                    <th class="levels">Personal-Level</th>
+                    <th class="levels">Population-Level</th>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="tooltip">
+                      <i class="fa fa-info" style="font-size:11px">
+                        <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
+                      </i>
+                      Compound Annual Growth Rate
+                    </td>
+                    <td id="personalGrowthRate">----</td>
+                    <td id="populationGrowthRate">----</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="tooltip">
+                      <i class="fa fa-info" style="font-size:11px">
+                        <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
+                      </i>
+                      Years to Double
+                    </td>
+                    <td id="personalDoubleYears">----</td>
+                    <td id="populationDoubleYears">----</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="tooltip">
+                      <i class="fa fa-info" style="font-size:11px">
+                        <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
+                      </i>
+                      Elasticity of Population
+                    </td>
+                    <td id="personalElasticity">----</td>
+                    <td id="populationElasticity">----</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <button class="clear" type="reset" id="clear">Clear</button>
+                    </td> 
+                  </tr>
+                </table>
               </td>
-              <td id="personalDoubleYears">----</td>
-              <td id="populationDoubleYears">----</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="tooltip">
-                <i class="fa fa-info" style="font-size:11px">
-                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
-                </i>
-                Elasticity of Population
-              </td>
-              <td id="personalElasticity">----</td>
-              <td id="populationElasticity">----</td>
-              <td></td>
-              <td>
-                <button class="clear" type="reset" id="clear">Clear</button>
-              </td>
-            </tr>
+          </table>
           </tbody>
         </table>
       </form>

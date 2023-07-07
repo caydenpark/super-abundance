@@ -33,6 +33,7 @@ form {
   border-radius: 25px;
   justify-content: center;
   min-width: 530px;
+  max-width: 1000px;
 }
 
 th,
@@ -140,4 +141,62 @@ i {
   text-align: center;
   position: relative;
   padding-top: 2px;
+}
+
+#leftTable {
+  width: 55%;
+}
+
+#leftTable td:first-child {
+  width: 20px;
+}
+
+#leftTable td:last-child {
+  width: 20px;
+}
+
+#rightTable td:first-child {
+  width: 80%;
+}
+
+#leftTable td {
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+}
+
+#boxes {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+#boxes span {
+  color: white;
+}
+
+#greenBox, #redBox {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#greenBox {
+  background-color: green;
+  width: 90%;
+  height: 90%;
+  z-index: -1;
+}
+
+#redBox {
+  background-color: red;
+  width: 40%;
+  height: 40%;
+  z-index: 1;
+}
+
+#boxes span {
+  margin: auto;
+  font-size: 25px;
+  font-weight: 500;
 }
