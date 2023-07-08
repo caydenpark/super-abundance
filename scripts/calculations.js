@@ -184,8 +184,8 @@ function performCalculations() {
 
 
     // Illustration Calculations
-    var endYearBoxNumber = document.getElementById("startYear").value;
-    var startYearBoxNumber = document.getElementById("endYear").value;
+    var endYearBoxNumber = document.getElementById("endYear").value;
+    var startYearBoxNumber = document.getElementById("startYear").value;
 
     document.getElementById("endYearBoxNumber").textContent = endYearBoxNumber;
     document.getElementById("startYearBoxNumber").textContent = startYearBoxNumber;
