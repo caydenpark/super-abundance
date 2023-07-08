@@ -90,7 +90,7 @@
             <tr>
               <td class="dropDown">
                 <label for="dropDownPopulation">Population:</label>
-                <select name="dropDownPopulation" id="dropDownPopulation" onchange="getHourlyComp()">
+                <select name="dropDownPopulation" id="dropDownPopulation" onchange="getPopulation()">
                   <option value="Custom Population">Custom Population</option>
                   <option value="U.S.">U.S.</option>
                   <option value="World">World</option>
@@ -121,12 +121,12 @@
               <td id="leftTable">
                 <table>
                   <tr>
-                    <td>
+                    <td id="personalMultiplierPercentageChange">
                       + --- %
                     </td>
                     <td rowspan="3" id="boxes">
-                      <div id="greenBox"><span>1980</span></div>
-                      <div id="redBox"><span>1980</span></div>
+                      <div id="greenBox"><span id="endYearBoxNumber">----</span></div>
+                      <div id="redBox"><span id="startYearBoxNumber">----</span></div>
                     </td>
                     <td>
                       <p>Population Resource Abundance</p>
