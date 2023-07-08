@@ -45,20 +45,22 @@ function getHourlyComp(){
         endComp = data.data[endYear.value - 1800].usBlueCollar;
         break;
       case "U.K. Wage":
-        startComp = data.data[startYear.value - 1800].usBlueCollar;
+        startComp = data.data[startYear.value - 1800].ukWage;
         endComp = data.data[endYear.value - 1800].ukWage;
         break;
     }
     
-    document.getElementById("startComp").value = startComp.toString();
-    document.getElementById("endComp").value = endComp.toString();
+    document.getElementById("startComp").value = startComp.toFixed(2).toString();
+    document.getElementById("endComp").value = endComp.toFixed(2).toString();
 
     var compChange = endComp - startComp;
     var percentageCompChange = compChange / startComp * 100;
 
     document.getElementById("compChange").innerHTML = compChange.toFixed(2);
     document.getElementById("percentageCompChange").innerHTML = percentageCompChange.toFixed(1)+"%";
-}
+
+    performCalculations();
+  }
 
 function getPopulation(){
   var selectElement2 = document.getElementById('dropDownPopulation');
@@ -73,23 +75,28 @@ function getPopulation(){
     case "U.S.":
       startPop = data.data[startYear.value - 1800].usPopulation;
       endPop = data.data[endYear.value - 1800].usPopulation;
-      console.log(startPop);
-      console.log(endPop);
       break;
     case "World":
       startPop = data.data[startYear.value - 1800].worldPopulation;
       endPop = data.data[endYear.value - 1800].worldPopulation;
       break;
   }
-  
-  document.getElementById("startPop").value = parseInt(startPop.replace(/,/g, ''));
-  document.getElementById("endPop").value = parseInt(endPop.replace(/,/g, ''));
+
+  // document.getElementById("startPop").value = startPop.trim();
+  // document.getElementById("endPop").value = endPop.trim();
+  startPop = parseInt(startPop.replace(/,/g, ''), 10);
+  endPop = parseInt(endPop.replace(/,/g, ''), 10);
+
+
+  document.getElementById("startPop").value = startPop;
+  document.getElementById("endPop").value = endPop;
 
   var popChange = endPop - startPop;
   var percentagePopChange = popChange / startPop * 100;
     
   document.getElementById("popChange").innerHTML = popChange;
   document.getElementById("percentagePopChange").innerHTML = percentagePopChange.toFixed(1)+"%";
+  performCalculations();
 }
 
 function performCalculations() {
@@ -189,6 +196,10 @@ function performCalculations() {
 
     document.getElementById("endYearBoxNumber").textContent = endYearBoxNumber;
     document.getElementById("startYearBoxNumber").textContent = startYearBoxNumber;
+
+    var personalMultiplierPercentageChangeIllustration = personalMultiplierChange / personalMultiplierStart * 100;
+    document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = personalMultiplierPercentageChange.toFixed(1)+"%";
+
   }
   
 function clear()
@@ -229,3 +240,10 @@ function clear()
     document.getElementById("populationElasticity").innerHTML = "----";
 }
 
+function changeBoxSize() {
+  greenBox = document.getElementById("#greenBox");
+  greenBox.
+
+  document.getElementById("greenBox").style.width = '50%';
+  greenBox.style
+}
