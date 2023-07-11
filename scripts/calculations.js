@@ -13,7 +13,6 @@
 
 document.getElementById("clear").onclick = function() {clear()};
 
-
 // Loads JSON
 data = null;
 window.addEventListener("load", (event) => {
@@ -196,9 +195,12 @@ function performCalculations() {
 
     document.getElementById("endYearBoxNumber").textContent = endYearBoxNumber;
     document.getElementById("startYearBoxNumber").textContent = startYearBoxNumber;
+    document.getElementById("endYearKey").textContent = endYearBoxNumber;
+    document.getElementById("startYearKey").textContent = startYearBoxNumber;
 
-    var personalMultiplierPercentageChangeIllustration = personalMultiplierChange / personalMultiplierStart * 100;
-    document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = personalMultiplierPercentageChange.toFixed(1)+"%";
+    document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+ "+personalMultiplierPercentageChange.toFixed(1)+"%";
+    document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
+    document.getElementById("percentagePopChangeIllustration").innerHTML = "Population + "+percentagePopChange.toFixed(1)+"%";
 
   }
   
