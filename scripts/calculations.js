@@ -86,15 +86,15 @@ function getPopulation(){
   startPop = parseInt(startPop.replace(/,/g, ''), 10);
   endPop = parseInt(endPop.replace(/,/g, ''), 10);
 
-
-  document.getElementById("startPop").value = startPop;
-  document.getElementById("endPop").value = endPop;
+  document.getElementById("startPop").value = (startPop/1000000).toFixed(1);
+  document.getElementById("endPop").value = (endPop/1000000).toFixed(1);
 
   var popChange = endPop - startPop;
   var percentagePopChange = popChange / startPop * 100;
     
   document.getElementById("popChange").innerHTML = popChange;
   document.getElementById("percentagePopChange").innerHTML = percentagePopChange.toFixed(1)+"%";
+
   performCalculations();
 }
 
@@ -127,7 +127,8 @@ function performCalculations() {
     // Population
     var startPop = document.getElementById("startPop").value;
     var endPop = document.getElementById("endPop").value;
-    var popChange = endPop - startPop;
+    
+    var popChange = (endPop - startPop).toFixed(1);
     var percentagePopChange = popChange / startPop * 100;
     
     document.getElementById("popChange").innerHTML = popChange;
@@ -200,7 +201,7 @@ function performCalculations() {
 
     document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+ "+personalMultiplierPercentageChange.toFixed(1)+"%";
     document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
-    document.getElementById("percentagePopChangeIllustration").innerHTML = "Population + "+percentagePopChange.toFixed(1)+"%";
+    document.getElementById("percentagePopChangeIllustration").innerHTML = "+ "+percentagePopChange.toFixed(1)+"%";
 
   }
   
@@ -244,8 +245,8 @@ function clear()
 
 function changeBoxSize() {
   greenBox = document.getElementById("#greenBox");
-  greenBox.
+  redBox = document.getElementById("#redBox");
 
   document.getElementById("greenBox").style.width = '50%';
-  greenBox.style
-}
+  greenBox.style.width = "50%";
+}''

@@ -170,10 +170,6 @@ i {
   height: 300px;
 }
 
-#boxes span {
-  color: white;
-}
-
 #greenBox, #redBox {
   display: flex;
   position: absolute;
@@ -183,20 +179,58 @@ i {
 
 #greenBox {
   background-color: green;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   z-index: -1;
 }
 
 #redBox {
   background-color: red;
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
   z-index: 1;
 }
 
 #boxes span {
-  margin: auto;
+  padding-left: 10px;
+  padding-top: 10px;
   font-size: 25px;
   font-weight: 500;
+  color: white;
+}
+
+#key {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#key p {
+  padding-left: 5px;
+}
+
+#tinyGreenBox, #tinyRedBox {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+
+#tinyGreenBox {
+  background-color: green;
+}
+
+#tinyRedBox {
+  background-color: red;
+}
+
+#bottomLabel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#labelPopulation {
+  text-align: left;
+}
+
+#percentagePopChangeIllustration {
+  text-align: right;
 }

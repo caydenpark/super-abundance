@@ -97,8 +97,8 @@
                 <label for="dropDownPopulation">Population:</label>
                 <select name="dropDownPopulation" id="dropDownPopulation" onchange="getPopulation()">
                   <option value="Custom Population">Custom Population</option>
-                  <option value="U.S.">U.S.</option>
-                  <option value="World">World</option>
+                  <option value="U.S.">U.S. (in millions)</option>
+                  <option value="World">World (in millions)</option>
                 </select>
               </td>
               <td class="input">
@@ -134,7 +134,7 @@
                       <div id="redBox"><span id="startYearBoxNumber">----</span></div>
                     </td>
                     <td>
-                      <p>Population Resource Abundance</p>
+                      <p id="PRA">Population Resource Abundance</p>
                       <p id="populationMultiplierPercentageChangeIllustration"> + --- %</p>
                     </td>
                   </tr>
@@ -144,15 +144,18 @@
                   </tr>
                   <tr>
                     <td></td>
-                    <td>
-                      <p id="startYearKey">Start Year</p>
-                      <p id="endYearKey">End Year</p>
+                    <td id="key">
+                      <div id="tinyGreenBox"></div>
+                      <p id="endYearKey">End</p>
+                      <div id="tinyRedBox"></div>
+                      <p id="startYearKey">Start</p>
                     </td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td id="percentagePopChangeIllustration">
-                      Population + --- %
+                    <td id="bottomLabel">
+                      <div id="labelPopulation">Population</div>
+                      <div id="percentagePopChangeIllustration">+ --- %</div>
                     </td>
                     <td></td>
                   </tr>
@@ -214,12 +217,6 @@
           </tbody>
         </table>
       </form>
-      <!-- <div id="coordinates">
-        <div id="graph">
-            <div class="box" id="red"><span>1980</span></div>
-            <div class="box" id="green"><span>2020</span></div>
-        </div>
-    </div> -->
     </main>
     <script src="scripts/calculations.js"></script>
   </body>
