@@ -102,6 +102,10 @@ function resetCustomPopulationDropDown() {
   document.getElementById('dropDownPopulation').value = "Custom Population";
 }
 
+function resetCustomWageDropDown() {
+  document.getElementById('dropDownWages').value = "Custom Wage";
+}
+
 function performCalculations() {
     // Year
     var startYear = document.getElementById("startYear").value;

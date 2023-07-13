@@ -60,10 +60,10 @@
               </select>
               </td>
               <td class="input">
-                <input type="number" id="startComp" onkeyup="performCalculations()" required />
+                <input type="number" id="startComp" onkeyup="performCalculations(); resetCustomWageDropDown();" required />
               </td>
               <td class="input">
-                <input type="number" id="endComp" onkeyup="performCalculations()" required />
+                <input type="number" id="endComp" onkeyup="performCalculations(); resetCustomWageDropDown();" required />
               </td>
               <td id="compChange">----</td>
               <td id="percentageCompChange">----</td>
