@@ -86,8 +86,8 @@ function getPopulation(){
   startPop = parseInt(startPop.replace(/,/g, ''), 10);
   endPop = parseInt(endPop.replace(/,/g, ''), 10);
 
-  document.getElementById("startPop").value = (startPop/1000000).toFixed(1);
-  document.getElementById("endPop").value = (endPop/1000000).toFixed(1);
+  document.getElementById("startPop").value = (startPop/1000000).toFixed(3);
+  document.getElementById("endPop").value = (endPop/1000000).toFixed(3);
 
   var popChange = endPop - startPop;
   var percentagePopChange = popChange / startPop * 100;
@@ -96,6 +96,10 @@ function getPopulation(){
   document.getElementById("percentagePopChange").innerHTML = percentagePopChange.toFixed(1)+"%";
 
   performCalculations();
+}
+
+function resetCustomPopulationDropDown() {
+  document.getElementById('dropDownPopulation').value = "Custom Population";
 }
 
 function performCalculations() {
@@ -128,7 +132,7 @@ function performCalculations() {
     var startPop = document.getElementById("startPop").value;
     var endPop = document.getElementById("endPop").value;
     
-    var popChange = (endPop - startPop).toFixed(1);
+    var popChange = (endPop - startPop).toFixed(3);
     var percentagePopChange = popChange / startPop * 100;
     
     document.getElementById("popChange").innerHTML = popChange;
@@ -188,7 +192,6 @@ function performCalculations() {
     
     document.getElementById("personalElasticity").innerHTML = personalElasticity.toFixed(2);
     document.getElementById("populationElasticity").innerHTML = populationElasticity.toFixed(2);
-
 
     // Illustration Calculations
     var endYearBoxNumber = document.getElementById("endYear").value;

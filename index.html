@@ -102,10 +102,10 @@
                 </select>
               </td>
               <td class="input">
-                <input type="number" id="startPop" onkeyup="performCalculations()" required />
+                <input type="number" id="startPop" onkeyup="performCalculations(); resetCustomPopulationDropDown();" required />
               </td>
               <td class="input">
-                <input type="number" id="endPop" onkeyup="performCalculations()" required />
+                <input type="number" id="endPop" onkeyup="performCalculations(); resetCustomPopulationDropDown();" required />
               </td>
               <td id="popChange">----</td>
               <td id="percentagePopChange">----</td>
