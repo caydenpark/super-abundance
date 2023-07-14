@@ -191,8 +191,8 @@ function performCalculations() {
     document.getElementById("populationDoubleYears").innerHTML = populationDoubleYears.toFixed(2);
     
     // Elasticity of Population
-    var personalElasticity = personalMultiplierPercentageChange/popChange/100;
-    var populationElasticity = populationMultiplierPercentageChange/popChange/100;
+    var personalElasticity = personalMultiplierPercentageChange/percentagePopChange;
+    var populationElasticity = populationMultiplierPercentageChange/percentagePopChange;
     
     document.getElementById("personalElasticity").innerHTML = personalElasticity.toFixed(2);
     document.getElementById("populationElasticity").innerHTML = populationElasticity.toFixed(2);
