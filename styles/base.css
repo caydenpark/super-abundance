@@ -11,7 +11,7 @@ table {
   justify-content: center;
 }
 
-caption {
+#table1 caption {
   font-weight: bold;
   font-size: 2rem;
   border: none;
@@ -20,6 +20,16 @@ caption {
   border-top-right-radius: 25px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+#table2 caption {
+  caption-side: bottom;
+  /* padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 10px; */
+  padding: 10px;
+  text-align: left;
+  font-size: small;
 }
 
 main {
@@ -133,7 +143,7 @@ select {
   font-size: 18px;
 }
 
-i {
+/* i {
   border: 1.5px solid black;
   border-radius: 50%;
   width: 14px;
@@ -141,7 +151,7 @@ i {
   text-align: center;
   position: relative;
   padding-top: 2px;
-}
+} */
 
 #leftTable {
   width: 55%;

@@ -70,9 +70,9 @@
             </tr>
             <tr>
               <td class="tooltip">
-                <i class="fa fa-info" style="font-size:11px" >
+                <!-- <i class="fa fa-info" style="font-size:11px" > -->
                   <span class="tooltiptext">Time Price = Nominal Price ÷ Hourly Compensation</span>
-                </i>
+                <!-- </i> -->
                 Time Price in Hours
               </td>
               <td id="startTimePrice">----</td>
@@ -82,9 +82,9 @@
             </tr>
             <tr>
               <td class="tooltip">
-                <i class="fa fa-info" style="font-size:11px" >
-                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
-                </i>
+                <!-- <i class="fa fa-info" style="font-size:11px" > -->
+                  <span class="tooltiptext">Start Year Indexed to 1, End Year = Start Time Price divided by End Year Time Price.</span>
+                <!-- </i> -->
                 Personal-Level Multiplier
               </td>
               <td id="personalMultiplierStart">1</td>
@@ -112,9 +112,9 @@
             </tr>
             <tr>
               <td class="tooltip">
-                <i class="fa fa-info" style="font-size:11px">
-                  <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
-                </i>
+                <!-- <i class="fa fa-info" style="font-size:11px"> -->
+                  <span class="tooltiptext">Start Year Indexed to 1, End Year = End Year Time Price multiplied by (1 plus the percentage change in population)</span>
+                <!-- </i> -->
                 Population-Level Multiplier
               </td>
               <td id="populationMultiplierStart">1</td>
@@ -123,6 +123,7 @@
               <td id="populationMultiplierPercentageChange">----</td>
             </tr>
             <table style="width:100%" id="table2">
+            <caption><em>Hover over terms to see definition.</em></caption>
               <td id="leftTable">
                 <table>
                   <tr>
@@ -172,9 +173,9 @@
                   </tr>
                   <tr>
                     <td class="tooltip">
-                      <i class="fa fa-info" style="font-size:11px">
-                        <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
-                      </i>
+                      <!-- <i class="fa fa-info" style="font-size:11px"> -->
+                        <span class="tooltiptext">End Year Multiplier raised to the power of (1 divided by Years) - 1</span>
+                      <!-- </i> -->
                       Compound Annual Growth Rate
                     </td>
                     <td id="personalGrowthRate">----</td>
@@ -184,9 +185,9 @@
                   </tr>
                   <tr>
                     <td class="tooltip">
-                      <i class="fa fa-info" style="font-size:11px">
-                        <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
-                      </i>
+                      <!-- <i class="fa fa-info" style="font-size:11px"> -->
+                        <span class="tooltiptext">70 divided by Compound Annual Growth Rate</span>
+                      <!-- </i> -->
                       Years to Double
                     </td>
                     <td id="personalDoubleYears">----</td>
@@ -196,9 +197,9 @@
                   </tr>
                   <tr>
                     <td class="tooltip">
-                      <i class="fa fa-info" style="font-size:11px">
-                        <span class="tooltiptext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, consequatur? Dolor, ullam.</span>
-                      </i>
+                      <!-- <i class="fa fa-info" style="font-size:11px"> -->
+                        <span class="tooltiptext">Percentage Change in abundance divided by percentage change in population </span>
+                      <!-- </i> -->
                       Elasticity of Population
                     </td>
                     <td id="personalElasticity">----</td>
@@ -214,9 +215,9 @@
                 </table>
               </td>
           </table>
-          </tbody>
-        </table>
-      </form>
+        </tbody>
+      </table>
+    </form>
     </main>
     <script src="scripts/calculations.js"></script>
   </body>
