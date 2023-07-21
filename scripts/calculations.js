@@ -16,7 +16,7 @@ document.getElementById("clear").onclick = function() {clear()};
 // Loads JSON
 data = null;
 window.addEventListener("load", (event) => {
-  const data = fetch('./Data/data.json')
+  const data = fetch('./data/data.json')
     .then((response) => response.json())
     .then((result) => (this.data = result));
 });
@@ -250,10 +250,10 @@ function clear()
     document.getElementById("populationElasticity").innerHTML = "----";
 }
 
-function changeBoxSize() {
-  greenBox = document.getElementById("#greenBox");
-  redBox = document.getElementById("#redBox");
+// function changeBoxSize() {
+//   greenBox = document.getElementById("#greenBox");
+//   redBox = document.getElementById("#redBox");
 
-  document.getElementById("greenBox").style.width = '50%';
-  greenBox.style.width = "50%";
-}''
+//   document.getElementById("greenBox").style.width = '50%';
+//   greenBox.style.width = "50%";
+// }''
