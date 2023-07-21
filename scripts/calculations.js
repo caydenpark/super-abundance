@@ -3,13 +3,6 @@
 //     performCaculations();
 // });
 
-// if (selectElement.value === "Custom Wage"){
-//     startComp = document.getElementById("startComp").value;
-//     endComp = document.getElementById("endComp").value;
-// } else if (selectElement.value === "U.S. Blue Collar") {
-//     startComp = data.data[startYear.value - 1800].usBlueCollar;
-//     endComp = data.data[endYear.value - 1800].usBlueCollar;
-// }
 
 document.getElementById("clear").onclick = function() {clear()};
 
