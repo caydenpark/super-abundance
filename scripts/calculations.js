@@ -203,6 +203,7 @@ function performCalculations() {
     document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
     document.getElementById("percentagePopChangeIllustration").innerHTML = "+ "+percentagePopChange.toFixed(1)+"%";
 
+    changeBoxSize(personalMultiplierPercentageChange, percentagePopChange);
   }
   
 function clear()
@@ -241,12 +242,36 @@ function clear()
 
     document.getElementById("personalElasticity").innerHTML = "----";
     document.getElementById("populationElasticity").innerHTML = "----";
+
+    // Illustration Dimensions
+    greenBox.style.width = "500px";
+    greenBox.style.height = "500px";
+
+    redBox.style.width = "250px";
+    redBox.style.height = "250px";
 }
 
-// function changeBoxSize() {
-//   greenBox = document.getElementById("#greenBox");
-//   redBox = document.getElementById("#redBox");
+function changeBoxSize(personalMultiplierPercentageChange, percentagePopChange) {
+  var greenBox = document.getElementById("greenBox");
+  var redBox = document.getElementById("redBox");
 
-//   document.getElementById("greenBox").style.width = '50%';
-//   greenBox.style.width = "50%";
-// }''
+  var greenHeight = 0;
+  var greenWidth = 0;
+  var redDimension = 0; // Width == Height (always square)
+
+  if (personalMultiplierPercentageChange >= percentagePopChange){
+    greenHeight = 500;
+    greenWidth = (1+(percentagePopChange/100))/(1+(personalMultiplierPercentageChange/100))*500;
+    redDimension = 500/(1+(personalMultiplierPercentageChange/100));
+  } else {
+    greenHeight = (1+(personalMultiplierPercentageChange/100))/(1+(percentagePopChange/100))*500;
+    greenWidth = 500;
+    redDimension = 500/(1+(percentagePopChange/100));
+  }
+
+  greenBox.style.width = `${greenHeight}px`;
+  greenBox.style.height = `${greenWidth}px`;
+
+  redBox.style.width = `${redDimension}px`;
+  redBox.style.height = `${redDimension}px`;
+}
