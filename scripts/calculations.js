@@ -9,7 +9,7 @@ document.getElementById("clear").onclick = function() {clear()};
 // Loads JSON
 data = null;
 window.addEventListener("load", (event) => {
-  const data = fetch('./data/data.json')
+  data = fetch('./data/data.json')
     .then((response) => response.json())
     .then((result) => (this.data = result));
 });
