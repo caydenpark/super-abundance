@@ -98,7 +98,7 @@ td:first-child {
   border-bottom: 0.1px solid black;
 }
 
-button {
+button 
   background-color: rgb(226, 226, 226);
   border: .1rem solid black;
   text-align: center;
