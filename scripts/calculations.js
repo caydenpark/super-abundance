@@ -199,11 +199,13 @@ function performCalculations() {
     document.getElementById("endYearKey").textContent = endYearBoxNumber;
     document.getElementById("startYearKey").textContent = startYearBoxNumber;
 
-    document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+ "+personalMultiplierPercentageChange.toFixed(1)+"%";
+    document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+"+personalMultiplierPercentageChange.toFixed(1)+"%";
     document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
     document.getElementById("percentagePopChangeIllustration").innerHTML = "+ "+percentagePopChange.toFixed(1)+"%";
 
-    changeBoxSize(personalMultiplierPercentageChange, percentagePopChange);
+    if (allInputFieldsNotEmpty()){
+      changeBoxSize(personalMultiplierPercentageChange, percentagePopChange);
+    }
   }
   
 function clear()
@@ -246,14 +248,29 @@ function clear()
     // Illustration Dimensions
     greenBox.style.width = "500px";
     greenBox.style.height = "500px";
+    greenBox.style.backgroundColor = "white"
 
     redBox.style.width = "250px";
     redBox.style.height = "250px";
+    redBox.style.backgroundColor = "white"
+}
+
+function allInputFieldsNotEmpty() {
+  const inputFields = document.querySelectorAll('input[type="number"], textarea');
+  
+  for (const inputField of inputFields) {
+    if (inputField.value.trim() === '') {
+      return false; // At least one input field is empty, so return false.
+    }
+  }
+  
+  return true; // All input fields have values, so return true.
 }
 
 function changeBoxSize(personalMultiplierPercentageChange, percentagePopChange) {
   var greenBox = document.getElementById("greenBox");
   var redBox = document.getElementById("redBox");
+  var boxes = document.getElementById("boxes");
 
   var greenHeight = 0;
   var greenWidth = 0;
@@ -269,9 +286,31 @@ function changeBoxSize(personalMultiplierPercentageChange, percentagePopChange) 
     redDimension = 500/(1+(percentagePopChange/100));
   }
 
-  greenBox.style.width = `${greenHeight}px`;
-  greenBox.style.height = `${greenWidth}px`;
+  if (redDimension < 30){
+    redDimension = 30;
+  }
+
+  if (greenWidth < 30){
+    greenWidth = 30;
+  }
+
+  if (greenHeight < 30){
+    greenHeight = 30;
+  }
+
+  if (greenWidth < 90 || greenHeight < 90){
+    endYearBoxNumber.textContent = "";
+  }
+
+  if (redDimension < 90){
+    startYearBoxNumber.textContent = "";
+  }
+
+  greenBox.style.width = `${greenWidth}px`;
+  greenBox.style.height = `${greenHeight}px`;
+  greenBox.style.backgroundColor = "green";
 
   redBox.style.width = `${redDimension}px`;
   redBox.style.height = `${redDimension}px`;
+  redBox.style.backgroundColor = "red";
 }

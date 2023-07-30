@@ -33,10 +33,10 @@
           <tr>
             <td>Year</td>
             <td class="input">
-              <input type="number" id="startYear" onkeyup="performCalculations()" required />
+              <input type="number" id="startYear" onkeyup="performCalculations(); getHourlyComp(); getPopulation();" required />
             </td>
             <td class="input">
-              <input type="number" id="endYear" onkeyup="performCalculations()" required />
+              <input type="number" id="endYear" onkeyup="performCalculations(); getHourlyComp(); getPopulation();" required />
             </td>
             <td id="yearChange">----</td>
             <td></td>
@@ -231,5 +231,4 @@
   </main>
   <script src="scripts/calculations.js"></script>
 </body>
-
 </html>

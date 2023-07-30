@@ -177,6 +177,8 @@ select {
   position: relative;
   width: 500px;
   height: 500px;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 #greenBox, #redBox {
@@ -187,17 +189,21 @@ select {
 }
 
 #greenBox {
-  background-color: green;
-  width: 500px;
-  height: 500px;
+  /* background-color: green; */
+  /* width: 500px; */
+  /* height: 500px; */
   z-index: -1;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 #redBox {
-  background-color: red;
-  width: 250px;
-  height: 250px;
+  /* background-color: white;
+  width: 0px;
+  height: 0px; */
   z-index: 1;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 #boxes span {
@@ -242,4 +248,8 @@ select {
 
 #percentagePopChangeIllustration {
   text-align: right;
+}
+
+#personalMultiplierPercentageChangeIllustration {
+  vertical-align: top;
 }
