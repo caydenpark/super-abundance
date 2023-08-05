@@ -2,17 +2,23 @@
     font-family: 'Roboto', sans-serif;
 }
 
-table {
+#table1 {
   margin: auto;
   border-collapse: collapse;
   border: none;
+  border-bottom: .11rem solid black;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   justify-content: center;
 }
 
 #table2 {
-  border-bottom: 1px solid black;
+  margin: auto;
+  border-collapse: collapse;
+  border: none;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  justify-content: center;
 }
 
 #table1 caption {
@@ -24,16 +30,6 @@ table {
   border-top-right-radius: 25px;
   padding-top: 5px;
   padding-bottom: 5px;
-}
-
-#table2 caption {
-  caption-side: bottom;
-  /* padding-top: 5px;
-  padding-bottom: 10px;
-  padding-left: 10px; */
-  padding: 10px;
-  text-align: left;
-  font-size: small;
 }
 
 main {
@@ -90,7 +86,7 @@ input::-webkit-inner-spin-button {
 }
 
 th:nth-child(n + 4) {
-  border-bottom: 1px solid black;
+  border-bottom: .05rem solid black;
 }
 
 td:first-child {
@@ -99,7 +95,7 @@ td:first-child {
 }
 
 .levels {
-  border-bottom: 0.1px solid black;
+  border-bottom: .05rem solid black;
 }
 
 button {
@@ -158,22 +154,23 @@ select {
   width: 55%;
 } */
 
-#leftTable td:first-child {
+#table2 td:first-child {
   width: 20px;
 }
 
-#leftTable td:last-child {
+#table2 td:last-child {
   width: 20px;
+}
+
+#table2 td {
+  /* border: 1px solid black; */
+  border-collapse: collapse;
 }
 
 #rightTable td:first-child {
   width: 80%;
 }
 
-#leftTable td {
-  /* border: 1px solid black; */
-  border-collapse: collapse;
-}
 
 #boxes {
   position: relative;
