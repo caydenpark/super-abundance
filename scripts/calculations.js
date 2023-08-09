@@ -199,7 +199,7 @@ function performCalculations() {
     document.getElementById("endYearKey").textContent = endYearBoxNumber;
     document.getElementById("startYearKey").textContent = startYearBoxNumber;
 
-    document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+"+personalMultiplierPercentageChange.toFixed(1)+"%";
+    document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+ "+personalMultiplierPercentageChange.toFixed(1)+"%";
     document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
     document.getElementById("percentagePopChangeIllustration").innerHTML = "+ "+percentagePopChange.toFixed(1)+"%";
 

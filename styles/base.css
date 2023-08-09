@@ -250,5 +250,6 @@ select {
 }
 
 #personalMultiplierPercentageChangeIllustration {
-  vertical-align: top;
+  /* vertical-align: top; */
+  font-weight: 400;
 }
