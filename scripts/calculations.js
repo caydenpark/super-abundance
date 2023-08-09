@@ -277,12 +277,12 @@ function changeBoxSize(personalMultiplierPercentageChange, percentagePopChange) 
   var redDimension = 0; // Width == Height (always square)
 
   if (personalMultiplierPercentageChange >= percentagePopChange){
-    greenWidth = 500;
-    greenHeight = (1+(percentagePopChange/100))/(1+(personalMultiplierPercentageChange/100))*500;
+    greenHeight = 500;
+    greenWidth = (1+(percentagePopChange/100))/(1+(personalMultiplierPercentageChange/100))*500;
     redDimension = 500/(1+(personalMultiplierPercentageChange/100));
   } else {
-    greenWidth = (1+(personalMultiplierPercentageChange/100))/(1+(percentagePopChange/100))*500;
-    greenHeight = 500;
+    greenHeight = (1+(personalMultiplierPercentageChange/100))/(1+(percentagePopChange/100))*500;
+    greenWidth = 500;
     redDimension = 500/(1+(percentagePopChange/100));
   }
 
