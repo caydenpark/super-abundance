@@ -171,14 +171,24 @@ select {
   width: 80%;
 }
 
+#boxes span {
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: white;
+}
 
 #boxes {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 250px;
+  height: 300px;
+  min-width: 175px;
+  min-height: 300px;
   max-width: 500px;
   max-height: 500px;
 }
+
 
 #greenBox, #redBox {
   display: flex;
@@ -205,13 +215,6 @@ select {
   max-height: 500px;
 }
 
-#boxes span {
-  padding-left: 10px;
-  padding-top: 10px;
-  font-size: 25px;
-  font-weight: 500;
-  color: white;
-}
 
 #key {
   display: grid;
@@ -251,5 +254,6 @@ select {
 
 #personalMultiplierPercentageChangeIllustration {
   /* vertical-align: top; */
+  padding-top: 20px;
   font-weight: 400;
 }

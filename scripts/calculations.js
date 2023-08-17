@@ -207,7 +207,7 @@ function performCalculations() {
       changeBoxSize(personalMultiplierPercentageChange, percentagePopChange);
     }
   }
-  
+
 function clear()
 {
     document.getElementById("yearChange").innerHTML = "----";
@@ -276,14 +276,34 @@ function changeBoxSize(personalMultiplierPercentageChange, percentagePopChange) 
   var greenWidth = 0;
   var redDimension = 0; // Width == Height (always square)
 
+  var containerHeight = 0;
+  var containerWidth = 0;
+
   if (personalMultiplierPercentageChange >= percentagePopChange){
     greenHeight = 500;
     greenWidth = (1+(percentagePopChange/100))/(1+(personalMultiplierPercentageChange/100))*500;
     redDimension = 500/(1+(personalMultiplierPercentageChange/100));
+
+    containerHeight = 500;
+    if (greenWidth >= redDimension){
+      containerWidth = greenWidth;
+    }
+    else{
+      containerWidth = redDimension;
+    }
+
   } else {
     greenHeight = (1+(personalMultiplierPercentageChange/100))/(1+(percentagePopChange/100))*500;
     greenWidth = 500;
     redDimension = 500/(1+(percentagePopChange/100));
+
+    containerWidth = 500;
+    if (greenHeight >= redDimension){
+      containerHeight = greenHeight;
+    }
+    else{
+      containerHeight = redDimension;
+    }
   }
 
   if (redDimension < 30){
@@ -313,4 +333,10 @@ function changeBoxSize(personalMultiplierPercentageChange, percentagePopChange) 
   redBox.style.width = `${redDimension}px`;
   redBox.style.height = `${redDimension}px`;
   redBox.style.backgroundColor = "red";
+
+  boxes.style.width = `${containerWidth}px`;
+  boxes.style.height = `${containerHeight}px`;
+  if (containerHeight < 295){
+    document.getElementById("personalMultiplierPercentageChangeIllustration").style.verticalAlign = "middle";
+  }else{document.getElementById("personalMultiplierPercentageChangeIllustration").style.verticalAlign = "top";}
 }
