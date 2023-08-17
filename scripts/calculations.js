@@ -337,6 +337,10 @@ function changeBoxSize(personalMultiplierPercentageChange, percentagePopChange) 
   boxes.style.width = `${containerWidth}px`;
   boxes.style.height = `${containerHeight}px`;
   if (containerHeight < 295){
-    document.getElementById("personalMultiplierPercentageChangeIllustration").style.verticalAlign = "middle";
-  }else{document.getElementById("personalMultiplierPercentageChangeIllustration").style.verticalAlign = "top";}
+    document.getElementById("personalMultiplierPercentageChangeIllustration").style.verticalAlign = "bottom";
+    document.getElementById("populationMultiplierPercentageChangeIllustrationAndText").style.verticalAlign = "middle";
+  }else{
+    document.getElementById("personalMultiplierPercentageChangeIllustration").style.verticalAlign = "top";
+    document.getElementById("populationMultiplierPercentageChangeIllustrationAndText").style.verticalAlign = "top";
+  }
 }
