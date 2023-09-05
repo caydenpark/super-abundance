@@ -100,6 +100,7 @@ function resetCustomWageDropDown() {
 }
 
 function performCalculations() {
+  // while (allInputFieldsNotEmpty()){
     // Year
     var startYear = document.getElementById("startYear").value;
     var endYear = document.getElementById("endYear").value;
@@ -202,6 +203,7 @@ function performCalculations() {
     document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+ "+personalMultiplierPercentageChange.toFixed(1)+"%";
     document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
     document.getElementById("percentagePopChangeIllustration").innerHTML = "+ "+percentagePopChange.toFixed(1)+"%";
+  // }
 
     if (allInputFieldsNotEmpty()){
       changeBoxSize(personalMultiplierPercentageChange, percentagePopChange);
