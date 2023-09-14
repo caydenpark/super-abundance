@@ -74,11 +74,11 @@ tr:nth-child(7) {
 }
 
 input {
-  background-color: rgb(249, 244, 83);
+  background-color: rgba(249, 243, 83, 0.491);
   border: .11rem solid black;
   text-align: center;
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 550;
   width: 90%;
   height: 25px;
 }
@@ -264,5 +264,5 @@ select {
 }
 
 .calculations {
-  font-weight: bold;
+  font-weight: 550;
 }
