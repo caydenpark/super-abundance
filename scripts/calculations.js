@@ -198,7 +198,10 @@ function performCalculations() {
     document.getElementById("endYearBoxNumber").textContent = endYearBoxNumber;
     document.getElementById("startYearBoxNumber").textContent = startYearBoxNumber;
     document.getElementById("endYearKey").textContent = endYearBoxNumber;
+    document.getElementById("endYearKey").style.fontWeight = "bold";
     document.getElementById("startYearKey").textContent = startYearBoxNumber;
+    document.getElementById("startYearKey").style.fontWeight = "bold";
+
 
     document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+ "+personalMultiplierPercentageChange.toFixed(1)+"%";
     document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
