@@ -1783,6 +1783,70 @@
       "ukWage": 19.326,
       "usPopulation": " 335,990,030 ",
       "worldPopulation": " 7,951,149,550 "
+    },
+    {
+      "Year": 2023,
+      "usBlueCollar": 36.50,
+      "usUnskilled": 16.51,
+      "ukWage": 19.9058,
+      "usPopulation": " 339,080,235 ",
+      "worldPopulation": " 8,008,551,995 "
+    },
+    {
+      "Year": 2024,
+      "usBlueCollar": 36.50,
+      "usUnskilled": 16.51,
+      "ukWage": 19.9058,
+      "usPopulation": " 340,912,892 ",
+      "worldPopulation": " 8,082,070,900 "
+    },
+    {
+      "Year": 2025,
+      "usBlueCollar": 36.50,
+      "usUnskilled": 16.51,
+      "ukWage": 19.9058,
+      "usPopulation": " 342,715,948 ",
+      "worldPopulation": " 8,155,601,099 "
+    },
+    {
+      "Year": 2026,
+      "usBlueCollar": 36.50,
+      "usUnskilled": 16.51,
+      "ukWage": 19.9058,
+      "usPopulation": " 344,490,859 ",
+      "worldPopulation": " 8,228,375,807 "
+    },
+    {
+      "Year": 2027,
+      "usBlueCollar": 36.50,
+      "usUnskilled": 16.51,
+      "ukWage": 19.9058,
+      "usPopulation": " 346,239,014 ",
+      "worldPopulation": " 8,300,353,212 "
+    },
+    {
+      "Year": 2028,
+      "usBlueCollar": 36.50,
+      "usUnskilled": 16.51,
+      "ukWage": 19.9058,
+      "usPopulation": " 347,957,508 ",
+      "worldPopulation": " 8,371,602,130 "
+    },
+    {
+      "Year": 2029,
+      "usBlueCollar": 36.50,
+      "usUnskilled": 16.51,
+      "ukWage": 19.9058,
+      "usPopulation": " 349,652,191 ",
+      "worldPopulation": " 8,442,055,453 "
+    },
+    {
+      "Year": 2030,
+      "usBlueCollar": 36.50,
+      "usUnskilled": 16.51,
+      "ukWage": 19.9058,
+      "usPopulation": " 351,334,473 ",
+      "worldPopulation": " 351,334,473 "
     }
   ]
 }
