@@ -2,6 +2,14 @@
     font-family: 'Roboto', sans-serif;
 }
 
+form {
+  border: 0.11rem solid black;
+  border-radius: 25px;
+  justify-content: center;
+  min-width: 900px;
+  max-width: 1000px;
+}
+
 #table1 {
   margin: auto;
   border-collapse: collapse;
@@ -38,14 +46,6 @@ main {
     justify-content: center;
 }
 
-form {
-  border: 0.11rem solid black;
-  border-radius: 25px;
-  justify-content: center;
-  min-width: 530px;
-  max-width: 1000px;
-}
-
 th {
   font-weight: normal;
 }
@@ -54,7 +54,11 @@ th,
 td {
   border-collapse: collapse;
   text-align: center;
-  padding: 10px;
+  /* padding: 10px; */
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
   font-size: 16px;
 }
 
@@ -79,7 +83,7 @@ input {
   text-align: center;
   font-size: 17px;
   font-weight: 550;
-  width: 90%;
+  width: 100%;
   height: 25px;
 }
 
@@ -90,12 +94,16 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-th:nth-child(n + 4) {
-  border-bottom: .05rem solid black;
-}
-
 td:first-child {
   text-align: right;
+}
+
+#table1 td:not(:first-child) {
+  width: 10%;
+}
+
+th:nth-child(n + 4) {
+  border-bottom: .05rem solid black;
 }
 
 .levels {

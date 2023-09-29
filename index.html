@@ -17,7 +17,7 @@
 
 <body>
   <main>
-    <form style="min-width: 900px;">
+    <form>
       <table style="width:100%" id="table1">
         <caption>Abundance Calculator</caption>
         <thead>
@@ -28,7 +28,7 @@
             <th>Start</th>
             <th>End</th>
             <th>Change</th>
-            <th>Percentage Change</th>
+            <th>Percentage<br>Change</th>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +41,7 @@
               <input type="number" id="endYear" onkeyup="performCalculations(); getHourlyComp(); getPopulation();" required />
             </td>
             <td id="yearChange" class="calculations">----</td>
+            <td></td>
             <td></td>
           </tr>
           <tr>
