@@ -227,7 +227,6 @@ select {
   max-height: 500px;
 }
 
-
 #greenBox, #redBox {
   display: flex;
   position: absolute;

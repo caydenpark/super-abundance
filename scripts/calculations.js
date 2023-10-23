@@ -274,12 +274,15 @@ function clear()
     document.getElementById("populationElasticity").innerHTML = "----";
 
     // Illustration Dimensions
-    greenBox.style.width = "500px";
-    greenBox.style.height = "500px";
+    boxes.style.width = `250px`;
+    boxes.style.height = `300px`;
+    
+    greenBox.style.width = "50px";
+    greenBox.style.height = "50px";
     greenBox.style.backgroundColor = "#f7f8fa"
 
-    redBox.style.width = "250px";
-    redBox.style.height = "250px";
+    redBox.style.width = "25px";
+    redBox.style.height = "25px";
     redBox.style.backgroundColor = "#f7f8fa"
 
     document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "---";
