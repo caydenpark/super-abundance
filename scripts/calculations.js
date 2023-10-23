@@ -211,11 +211,9 @@ function performCalculations() {
       document.getElementById("startYearKey").textContent = startYearBoxNumber;
       document.getElementById("startYearKey").style.fontWeight = "bold";
     
-    
       document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+ "+personalMultiplierPercentageChange.toFixed(1)+"%";
       document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
       document.getElementById("percentagePopChangeIllustration").innerHTML = "+ "+percentagePopChange.toFixed(1)+"%";
-
 
       changeBoxSize(personalMultiplierPercentageChange, percentagePopChange);
 
@@ -283,6 +281,12 @@ function clear()
     redBox.style.width = "250px";
     redBox.style.height = "250px";
     redBox.style.backgroundColor = "#f7f8fa"
+
+    document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "---";
+    document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "---";
+    document.getElementById("percentagePopChangeIllustration").innerHTML = "---";
+    document.getElementById("endYearKey").textContent = "End";
+    document.getElementById("startYearKey").textContent = "Start";
 
     // Dashboard
     document.getElementById("timePricePercentageChangeDB").innerHTML = "----";
