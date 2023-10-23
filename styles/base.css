@@ -3,36 +3,59 @@
 }
 
 body {
-  background-color: rgba(250, 235, 215, 0.644);
+  /* background-color: rgba(177, 200, 211, 0.492); */
+  background-color: white;
 }
 
 form {
   background-color: #f7f8fa;
   border: 0.11rem solid rgba(0, 0, 0, 0.27);
+  position: absolute;
+  z-index: -2;
   border-radius: 25px;
-  justify-content: center;
   min-width: 900px;
   max-width: 1000px;
 }
 
-#dashboard caption {
+#title {
+  color: #676767;
+  text-align: center;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 3rem;
   border: none;
-  border-bottom: 0.11rem solid rgba(0, 0, 0, 0.668);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  margin: 0px;
+  padding-top: 10px;
 }
 
 #dashboard {
+  display: flex;
+  justify-content: center;
   width: 100%;
+  background-color: #f7f8fa;
+  border: none;
+  border-collapse: collapse;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 #dashboard td {
-  border: 1px solid black;
-  border-collapse: separate;
+  border: 1px solid rgba(0, 0, 0, 0.668);
+  width: 220px;
+}
+
+#dashboard h2 {
+  color: #0e1e58;
+  font-size: 35px;
+  margin: 5px;
+}
+
+#dashboard p {
+  color: #676767;
+  font-size: 14.5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 #table1 {
@@ -40,7 +63,6 @@ form {
   margin: auto;
   border-collapse: collapse;
   border: none;
-  border-top: .11rem solid rgba(0, 0, 0, 0.668);
   border-bottom: .11rem solid rgba(0, 0, 0, 0.668);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -70,11 +92,10 @@ th,
 td {
   border-collapse: collapse;
   text-align: center;
-  /* padding: 10px; */
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
   font-size: 16px;
 }
 
@@ -110,7 +131,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-td:first-child {
+#table1 td:first-child {
   text-align: right;
 }
 
@@ -127,15 +148,17 @@ th:nth-child(n + 4) {
 }
 
 button {
-  background-color: rgb(226, 226, 226);
-  border: .1rem solid black;
+  background-color: #929292;
+  color: #f7f8fa;
+  border: none;
   text-align: center;
   font-size: 15px;
   width: 100%;
   height: 50%;
   border-radius: 7px;
-  width: 25%;
+  width: 20%;
   margin-left: 80%;
+  padding: 5px;
 }
 
 select {
@@ -229,7 +252,6 @@ select {
   max-width: 500px;
   max-height: 500px;
 }
-
 
 #key {
   display: grid;
