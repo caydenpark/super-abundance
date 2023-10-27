@@ -60,9 +60,14 @@ function getPopulation(){
   let endPop;
 
   switch (selectElement2.value) {
+    case "Individual":
+      startPop = "1".toString();
+      endPop = "1".toString();
+      resetIllustration();
+      break;
     case "Custom Population":
-      startPop = document.getElementById("startPop").value;
-      endPop = document.getElementById("endPop").value;
+      startPop = "";
+      endPop = "";
       break;
     case "U.S.":
       startPop = data.data[startYear.value - 1800].usPopulation;
@@ -74,13 +79,24 @@ function getPopulation(){
       break;
   }
 
-  // document.getElementById("startPop").value = startPop.trim();
-  // document.getElementById("endPop").value = endPop.trim();
-  startPop = parseInt(startPop.replace(/,/g, ''), 10);
-  endPop = parseInt(endPop.replace(/,/g, ''), 10);
+  if (startPop.includes(',')) {
+    startPop = parseInt(startPop.replace(/,/g, ''), 10);
+  } else {
+    startPop = parseInt(startPop, 10);
+  }
 
-  document.getElementById("startPop").value = (startPop/1000000).toFixed(3);
-  document.getElementById("endPop").value = (endPop/1000000).toFixed(3);
+  if (endPop.includes(',')) {
+    endPop = parseInt(endPop.replace(/,/g, ''), 10);
+  } else {
+    endPop = parseInt(endPop, 10);
+  }
+
+  if (startPop.length > 6){
+    document.getElementById("startPop").value = (startPop/1000000).toFixed(3);
+  } else {document.getElementById("startPop").value = startPop;}
+  if (endPop.length > 6){
+    document.getElementById("endPop").value = (endPop/1000000).toFixed(3);
+  } else {document.getElementById("endPop").value = endPop;}
 
   var popChange = endPop - startPop;
   var percentagePopChange = popChange / startPop * 100;
@@ -197,25 +213,35 @@ function performCalculations() {
       var personalElasticity = personalMultiplierPercentageChange/percentagePopChange;
       var populationElasticity = populationMultiplierPercentageChange/percentagePopChange;
       
-      document.getElementById("personalElasticity").innerHTML = personalElasticity.toFixed(2);
-      document.getElementById("populationElasticity").innerHTML = populationElasticity.toFixed(2);
+      if (percentagePopChange != 0){
+        document.getElementById("personalElasticity").innerHTML = personalElasticity.toFixed(2);
+        document.getElementById("populationElasticity").innerHTML = populationElasticity.toFixed(2);
+      } else{
+        document.getElementById("personalElasticity").innerHTML = "---";
+        document.getElementById("populationElasticity").innerHTML = "---";
+      }
     
       // Illustration Calculations
-      var endYearBoxNumber = document.getElementById("endYear").value;
-      var startYearBoxNumber = document.getElementById("startYear").value;
-    
-      document.getElementById("endYearBoxNumber").textContent = endYearBoxNumber;
-      document.getElementById("startYearBoxNumber").textContent = startYearBoxNumber;
-      document.getElementById("endYearKey").textContent = endYearBoxNumber;
-      document.getElementById("endYearKey").style.fontWeight = "bold";
-      document.getElementById("startYearKey").textContent = startYearBoxNumber;
-      document.getElementById("startYearKey").style.fontWeight = "bold";
-    
-      document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+ "+personalMultiplierPercentageChange.toFixed(1)+"%";
-      document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
-      document.getElementById("percentagePopChangeIllustration").innerHTML = "+ "+percentagePopChange.toFixed(1)+"%";
+      if (startPop == endPop){
+        resetIllustration();
+      } else {
+        var endYearBoxNumber = document.getElementById("endYear").value;
+        var startYearBoxNumber = document.getElementById("startYear").value;
 
-      changeBoxSize(personalMultiplierPercentageChange, percentagePopChange);
+        document.getElementById("endYearBoxNumber").textContent = endYearBoxNumber;
+        document.getElementById("startYearBoxNumber").textContent = startYearBoxNumber;
+        document.getElementById("endYearKey").textContent = endYearBoxNumber;
+        document.getElementById("endYearKey").style.fontWeight = "bold";
+        document.getElementById("startYearKey").textContent = startYearBoxNumber;
+        document.getElementById("startYearKey").style.fontWeight = "bold";
+      
+        document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "+ "+personalMultiplierPercentageChange.toFixed(1)+"%";
+        document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "+ "+populationMultiplierPercentageChange.toFixed(1)+"%";
+        document.getElementById("percentagePopChangeIllustration").innerHTML = "+ "+percentagePopChange.toFixed(1)+"%";
+  
+        changeBoxSize(personalMultiplierPercentageChange, percentagePopChange);
+      }
+    
 
       // Dashboard
       if (timePricePercentageChange > 0) {
@@ -224,7 +250,9 @@ function performCalculations() {
 
       document.getElementById("personalMultiplierPercentageChangeDB").innerHTML =  "+" + personalMultiplierPercentageChange.toFixed(1)+"%";
       document.getElementById("personalGrowthRateDB").innerHTML = "+" + personalGrowthRate.toFixed(2)+"%";
-      document.getElementById("personalElasticityDB").innerHTML = personalElasticity.toFixed(2);
+      if (startPop != endPop){
+        document.getElementById("personalElasticityDB").innerHTML = personalElasticity.toFixed(2);
+      } else {document.getElementById("personalElasticityDB").innerHTML = "---";}
       
       if (percentagePopChange > 0) {
         document.getElementById("percentagePopChangeDB").innerHTML = "+" + percentagePopChange.toFixed(1)+"%";
@@ -232,7 +260,9 @@ function performCalculations() {
 
       document.getElementById("populationMultiplierPercentageChangeDB").innerHTML =  "+" + populationMultiplierPercentageChange.toFixed(1)+"%";
       document.getElementById("populationGrowthRateDB").innerHTML = "+" + populationGrowthRate.toFixed(2)+"%";
-      document.getElementById("populationElasticityDB").innerHTML = populationElasticity.toFixed(2);
+      if (startPop != endPop){
+        document.getElementById("populationElasticityDB").innerHTML = populationElasticity.toFixed(2);
+      } else {document.getElementById("populationElasticityDB").innerHTML = "---";}
     }
   }
 
@@ -272,25 +302,7 @@ function clear()
 
     document.getElementById("personalElasticity").innerHTML = "----";
     document.getElementById("populationElasticity").innerHTML = "----";
-
-    // Illustration Dimensions
-    boxes.style.width = `250px`;
-    boxes.style.height = `300px`;
     
-    greenBox.style.width = "50px";
-    greenBox.style.height = "50px";
-    greenBox.style.backgroundColor = "#f7f8fa"
-
-    redBox.style.width = "25px";
-    redBox.style.height = "25px";
-    redBox.style.backgroundColor = "#f7f8fa"
-
-    document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "---";
-    document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "---";
-    document.getElementById("percentagePopChangeIllustration").innerHTML = "---";
-    document.getElementById("endYearKey").textContent = "End";
-    document.getElementById("startYearKey").textContent = "Start";
-
     // Dashboard
     document.getElementById("timePricePercentageChangeDB").innerHTML = "----";
     document.getElementById("personalMultiplierPercentageChangeDB").innerHTML = "----";
@@ -301,6 +313,28 @@ function clear()
     document.getElementById("populationMultiplierPercentageChangeDB").innerHTML = "----";
     document.getElementById("populationGrowthRateDB").innerHTML = "----";
     document.getElementById("populationElasticityDB").innerHTML = "----";
+
+    resetIllustration();
+  }
+
+function resetIllustration(){
+  // Illustration Dimensions
+  boxes.style.width = `250px`;
+  boxes.style.height = `300px`;
+  
+  greenBox.style.width = "50px";
+  greenBox.style.height = "50px";
+  greenBox.style.backgroundColor = "#f7f8fa"
+
+  redBox.style.width = "25px";
+  redBox.style.height = "25px";
+  redBox.style.backgroundColor = "#f7f8fa"
+
+  document.getElementById("personalMultiplierPercentageChangeIllustration").innerHTML = "---";
+  document.getElementById("populationMultiplierPercentageChangeIllustration").innerHTML = "---";
+  document.getElementById("percentagePopChangeIllustration").innerHTML = "---";
+  document.getElementById("endYearKey").textContent = "End";
+  document.getElementById("startYearKey").textContent = "Start";
 }
 
 function allInputFieldsNotEmpty() {

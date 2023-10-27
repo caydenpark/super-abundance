@@ -149,17 +149,18 @@
                 Population</p>
               <!-- <label for="dropDownPopulation">Population:</label> -->
               <select name="dropDownPopulation" id="dropDownPopulation" onchange="getPopulation()">
+                <option value="Individual">Individual</option>
                 <option value="Custom Population">Custom Population</option>
                 <option value="U.S.">U.S. (in millions)</option>
                 <option value="World">World (in millions)</option>
               </select>
             </td>
             <td class="input">
-              <input type="number" id="startPop" onkeyup="performCalculations(); resetCustomPopulationDropDown();"
+              <input type="number" id="startPop" value="1" onkeyup="performCalculations(); resetCustomPopulationDropDown();"
                 required />
             </td>
             <td class="input">
-              <input type="number" id="endPop" onkeyup="performCalculations(); resetCustomPopulationDropDown();"
+              <input type="number" id="endPop" value="1" onkeyup="performCalculations(); resetCustomPopulationDropDown();"
                 required />
             </td>
             <td id="popChange" class="calculations">----</td>
