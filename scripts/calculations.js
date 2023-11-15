@@ -6,25 +6,16 @@
 
 document.getElementById("clear").onclick = function() {clear()};
 
-// Loads JSON
-data = null;
-window.addEventListener("load", (event) => {
-  toggleCalculatorState();
-
-  data = fetch('./Data/data.json')
-    .then((response) => response.json())
-    .then((result) => (this.data = result));
-});
 
 function toggleCalculatorState() {
   var title = document.getElementById("title");
-
+  
   var basicRadio = document.getElementById("basic");
   var advancedRadio = document.getElementById("advanced");
-
+  
   var basicCalc = document.getElementById("basicCalc");
   var advancedCalc = document.getElementById("advancedCalc");
-
+  
   if (basicRadio.checked) {
     basicCalc.classList.remove("hidden");
     advancedCalc.classList.add("hidden");
@@ -37,6 +28,16 @@ function toggleCalculatorState() {
     document.querySelector("form").style.minWidth = "900px";
   }
 }
+
+// Loads JSON
+data = null;
+window.addEventListener("load", (event) => {
+  toggleCalculatorState();
+
+  data = fetch('./Data/data.json')
+    .then((response) => response.json())
+    .then((result) => (this.data = result));
+});
 
 function getHourlyCompBasic(){
   var selectElementBasic = document.getElementById('dropDownWagesBasic');
