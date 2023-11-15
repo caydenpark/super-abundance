@@ -18,247 +18,350 @@
 <body>
   <main>
     <form>
-      <h1 id="title">Abundance Calculator</h1>
-      <table id="dashboard">
-        <tr>
-          <td>
-            <h2 id="timePricePercentageChangeDB">----</h2>
-            <p>Percentage Change <br>in the Time Price</p>
-          </td>  
-          <td>
-            <h2 id="personalMultiplierPercentageChangeDB">----</h2>
-            <p>Percentage Change in the <br>Personal Resource Abundance</p>
-          </td>  
-          <td>
-            <h2 id="personalGrowthRateDB">----</h2>
-            <p>Compound Annual Growth Rate of <br>Personal Resource Abundance</p>
-          </td>  
-          <td>
-            <h2 id="personalElasticityDB">----</h2>
-            <p>Personal Resource Abundance <br>Elasticity of Population</p>
-          </td>  
-        </tr>
-        <tr>
-          <td>
-            <h2 id="percentagePopChangeDB">----</h2>
-            <p>Percentage Change <br>in Population</p>
-          </td>  
-          <td>
-            <h2 id="populationMultiplierPercentageChangeDB">----</h2>
-            <p>Percentage Change in the <br>Population Resource Abundance</p>
-          </td>  
-          <td>
-            <h2 id="populationGrowthRateDB">----</h2>
-            <p>Compound Annual Growth Rate of <br>Population Resource Abundance</p>
-          </td>  
-          <td>
-            <h2 id="populationElasticityDB">----</h2>
-            <p>Population Resource Abundance <br>Elasticity of Population</p>
-          </td>  
-        </tr>
-      </table>
-      <table id="table1">
-        <thead>
-          <tr>
-            <th style="width:30%">
-              <button class="clear" type="reset" id="clear">Clear</button>
-            </th>
-            <th>Start</th>
-            <th>End</th>
-            <th>Change</th>
-            <th>Percentage<br>Change</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Year</td>
-            <td class="input">
-              <input type="number" id="startYear" onkeyup="performCalculations(); getHourlyComp(); getPopulation();" required />
-            </td>
-            <td class="input">
-              <input type="number" id="endYear" onkeyup="performCalculations(); getHourlyComp(); getPopulation();" required />
-            </td>
-            <td id="yearChange" class="calculations">----</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Nominal Price</td>
-            <td class="input">
-              <input type="number" id="startPrice" onkeyup="performCalculations()" required />
-            </td>
-            <td class="input">
-              <input type="number" id="endPrice" onkeyup="performCalculations()" required />
-            </td>
-            <td id="priceChange" class="calculations">----</td>
-            <td id="percentageChange" class="calculations">----</td>
-          </tr>
-          <tr>
-            <td class="dropDown">
-              <p style="margin: 0px;" class="tooltip">
-                <span class="tooltiptext">Sources: U.S. Measuringworth.com, U.K. Bank of England</span>
-                Hourly Compensation</p>
-              <!-- <label for="dropDownWages">Hourly Compensation:</label> -->
-              <select name="dropDownWages" id="dropDownWages" onchange="getHourlyComp()">
-                <option value="Custom Wage">Custom Wage</option>
-                <option value="U.S. Blue Collar">U.S. Blue Collar</option>
-                <option value="U.S. Unskilled">U.S. Unskilled</option>
-                <option value="U.S. Upskilling">U.S. Upskilling</option>
-                <option value="U.K. Wage">U.K. Wage</option>
-              </select>
-            </td>
-            <td class="input">
-              <input type="number" id="startComp" onkeyup="performCalculations(); resetCustomWageDropDown();"
-                required />
-            </td>
-            <td class="input">
-              <input type="number" id="endComp" onkeyup="performCalculations(); resetCustomWageDropDown();" required />
-            </td>
-            <td id="compChange" class="calculations">----</td>
-            <td id="percentageCompChange" class="calculations">----</td>
-          </tr>
-          <tr>
-            <td class="tooltip">
-              <!-- <i class="fa fa-info" style="font-size:11px" > -->
-              <span class="tooltiptext">Time Price = Nominal Price ÷ Hourly Compensation</span>
-              <!-- </i> -->
-              Time Price in Hours
-            </td>
-            <td id="startTimePrice" class="calculations">----</td>
-            <td id="endTimePrice" class="calculations">----</td>
-            <td id="timePriceChange" class="calculations">----</td>
-            <td id="timePricePercentageChange" class="calculations">----</td>
-          </tr>
-          <tr>
-            <td class="tooltip">
-              <!-- <i class="fa fa-info" style="font-size:11px" > -->
-              <span class="tooltiptext">Start Year Indexed to 1, End Year = Start Time Price divided by End Year Time
-                Price.</span>
-              <!-- </i> -->
-              Personal-Level Multiplier
-            </td>
-            <td id="personalMultiplierStart" class="calculations">1</td>
-            <td id="personalMultiplierEnd" class="calculations">----</td>
-            <td id="personalMultiplierChange" class="calculations">----</td>
-            <td id="personalMultiplierPercentageChange" class="calculations">----</td>
-          </tr>
-          <tr>
-            <td class="dropDown">
-              <p style="margin: 0px;" class="tooltip">
-                <span class="tooltiptext">Source: U.N. Population Division, estimates and projections</span>
-                Population</p>
-              <!-- <label for="dropDownPopulation">Population:</label> -->
-              <select name="dropDownPopulation" id="dropDownPopulation" onchange="getPopulation()">
-                <option value="Individual">Individual</option>
-                <option value="Custom Population">Custom Population</option>
-                <option value="U.S.">U.S. (in millions)</option>
-                <option value="World">World (in millions)</option>
-              </select>
-            </td>
-            <td class="input">
-              <input type="number" id="startPop" value="1" onkeyup="performCalculations(); resetCustomPopulationDropDown();"
-                required />
-            </td>
-            <td class="input">
-              <input type="number" id="endPop" value="1" onkeyup="performCalculations(); resetCustomPopulationDropDown();"
-                required />
-            </td>
-            <td id="popChange" class="calculations">----</td>
-            <td id="percentagePopChange" class="calculations">----</td>
-          </tr>
-          <tr>
-            <td class="tooltip">
-              <!-- <i class="fa fa-info" style="font-size:11px"> -->
-              <span class="tooltiptext">Start Year Indexed to 1, End Year = End Year Time Price multiplied by (1 plus
-                the percentage change in population)</span>
-              <!-- </i> -->
-              Population-Level Multiplier
-            </td>
-            <td id="populationMultiplierStart" class="calculations">1</td>
-            <td id="populationMultiplierEnd" class="calculations">----</td>
-            <td id="populationMultiplierChange" class="calculations">----</td>
-            <td id="populationMultiplierPercentageChange" class="calculations">----</td>
-          </tr>
-          <tr>
-            <td></td>
-            <th class="levels">Personal<br>Level</th>
-            <th class="levels">Population<br>Level</th>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tooltip">
-              <!-- <i class="fa fa-info" style="font-size:11px"> -->
-              <span class="tooltiptext">End Year Multiplier raised to the power of (1 divided by Years) - 1</span>
-              <!-- </i> -->
-              Compound Annual Growth Rate
-            </td>
-            <td id="personalGrowthRate" class="calculations">----</td>
-            <td id="populationGrowthRate" class="calculations">----</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tooltip">
-              <!-- <i class="fa fa-info" style="font-size:11px"> -->
-              <span class="tooltiptext">70 divided by Compound Annual Growth Rate</span>
-              <!-- </i> -->
-              Years to Double
-            </td>
-            <td id="personalDoubleYears" class="calculations">----</td>
-            <td id="populationDoubleYears" class="calculations">----</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tooltip">
-              <span class="tooltiptext">Percentage Change in abundance divided by percentage change in population
-              </span>
-              Elasticity of Population
-            </td>
-            <td id="personalElasticity" class="calculations">----</td>
-            <td id="populationElasticity" class="calculations">----</td>
-          </tr>
-          <table id="table2">
+      <h1 id="title">Time Price Calculator</h1>
+      <div id="toggleContainer">
+        <div class="toggle" onclick="toggleCalculatorState()">
+          <input type="radio" name="balance" value="basic" id="basic" class="toggleInput toggleInputBasic" checked="">
+          <label for="basic" class="toggleLabel">Basic</label>
+
+          <input type="radio" name="balance" value="advanced" id="advanced" class="toggleInput toggleInputAdvanced">
+          <label for="advanced" class="toggleLabel">Advanced</label>
+
+          <span class="toggleSwitch"></span>
+        </div>
+      </div>
+      <section id="basicCalc">
+        <table>
+          <thead>
             <tr>
-              <td id="personalMultiplierPercentageChangeIllustration" class="calculations">
-                ---
+              <th style="width:30%">
+                <button class="clear" type="reset" id="clear">Clear</button>
+              </th>
+              <th>Start</th>
+              <th>End</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Year</td>
+              <td class="input">
+                <input type="number" id="startYearBasic"
+                  onkeyup="performBasicCaculations(); getHourlyCompBasic(); getPopulationBasic();" required />
               </td>
-              <td rowspan="3" id="boxes">
-                <div id="greenBox"><span id="endYearBoxNumber">----</span></div>
-                <div id="redBox"><span id="startYearBoxNumber">----</span></div>
-              </td>
-              <td rowspan="3" id="populationMultiplierPercentageChangeIllustrationAndText">
-                <p id="PRA">Population Resource Abundance</p>
-                <p id="populationMultiplierPercentageChangeIllustration" class="calculations">---</p>
+              <td class="input">
+                <input type="number" id="endYearBasic"
+                  onkeyup="performBasicCaculations(); getHourlyCompBasic(); getPopulationBasic();" required />
               </td>
             </tr>
             <tr>
-              <td rowspan="2">Personal Resource Abundance</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td id="key">
-                <div id="tinyGreenBox"></div>
-                <p id="endYearKey">End</p>
-                <div id="tinyRedBox"></div>
-                <p id="startYearKey">Start</p>
+              <td>Nominal Price</td>
+              <td class="input">
+                <input type="number" id="startPriceBasic" onkeyup="performBasicCaculations()" required />
+              </td>
+              <td class="input">
+                <input type="number" id="endPriceBasic" onkeyup="performBasicCaculations()" required />
               </td>
             </tr>
             <tr>
-              <td></td>
-              <td id="bottomLabel">
-                <div id="labelPopulation">Population</div>
-                <div id="percentagePopChangeIllustration" class="calculations">---</div>
+              <td class="dropDown">
+                <p style="margin: 0px;" class="tooltip">
+                  <span class="tooltiptext">Sources: U.S. Measuringworth.com, U.K. Bank of England</span>
+                  Hourly Compensation
+                </p>
+                <select name="dropDownWages" id="dropDownWagesBasic" onchange="getHourlyCompBasic()">
+                  <option value="Custom Wage">Custom Wage</option>
+                  <option value="U.S. Blue Collar">U.S. Blue Collar</option>
+                  <option value="U.S. Unskilled">U.S. Unskilled</option>
+                  <option value="U.S. Upskilling">U.S. Upskilling</option>
+                  <option value="U.K. Wage">U.K. Wage</option>
+                </select>
               </td>
+              <td class="input">
+                <input type="number" id="startCompBasic"
+                  onkeyup="performBasicCaculations(); resetCustomWageDropDownBasic();"
+                  required />
+              </td>
+              <td class="input">
+                <input type="number" id="endCompBasic"
+                  onkeyup="performBasicCaculations(); resetCustomWageDropDownBasic();" required />
+              </td>
+            </tr>
+            <tr>
+              <td class="tooltip">
+                <!-- <i class="fa fa-info" style="font-size:11px" > -->
+                <span class="tooltiptext">Time Price = Nominal Price ÷ Hourly Compensation</span>
+                <!-- </i> -->
+                Time Price in Hours
+              </td>
+              <td id="startTimePriceBasic" class="calculations">----</td>
+              <td id="endTimePriceBasic" class="calculations">----</td>
+            </tr>
+        </table>
+        <table id="basicCalcChanges">
+          <tr>
+            <td>Percentage Change in the Time Price</td>
+            <td id="timePricePercentageChangeBasic">---</td>
+          </tr>
+          <tr>
+            <td>Percentage Change in Abundance</td>
+            <td id="percentageChangeAbundance">---</td>
+          </tr>
+          <tr>
+            <td>Compound Annual Growth Rate</td>
+            <td id="basicGrowthRate">---</td>
+          </tr>
+        </table>
+      </section>
+      <section id="advancedCalc" class="hidden">
+        <table id="dashboard">
+          <tr>
+            <td>
+              <h2 id="timePricePercentageChangeDB">----</h2>
+              <p>Percentage Change <br>in the Time Price</p>
+            </td>
+            <td>
+              <h2 id="personalMultiplierPercentageChangeDB">----</h2>
+              <p>Percentage Change in the <br>Personal Resource Abundance</p>
+            </td>
+            <td>
+              <h2 id="personalGrowthRateDB">----</h2>
+              <p>Compound Annual Growth Rate of <br>Personal Resource Abundance</p>
+            </td>
+            <td>
+              <h2 id="personalElasticityDB">----</h2>
+              <p>Personal Resource Abundance <br>Elasticity of Population</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h2 id="percentagePopChangeDB">----</h2>
+              <p>Percentage Change <br>in Population</p>
+            </td>
+            <td>
+              <h2 id="populationMultiplierPercentageChangeDB">----</h2>
+              <p>Percentage Change in the <br>Population Resource Abundance</p>
+            </td>
+            <td>
+              <h2 id="populationGrowthRateDB">----</h2>
+              <p>Compound Annual Growth Rate of <br>Population Resource Abundance</p>
+            </td>
+            <td>
+              <h2 id="populationElasticityDB">----</h2>
+              <p>Population Resource Abundance <br>Elasticity of Population</p>
+            </td>
+          </tr>
+        </table>
+        <table id="table1">
+          <thead>
+            <tr>
+              <th style="width:30%">
+                <button class="clear" type="reset" id="clear">Clear</button>
+              </th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Change</th>
+              <th>Percentage<br>Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Year</td>
+              <td class="input">
+                <input type="number" id="startYear" onkeyup="performCalculations(); getHourlyComp(); getPopulation();"
+                  required />
+              </td>
+              <td class="input">
+                <input type="number" id="endYear" onkeyup="performCalculations(); getHourlyComp(); getPopulation();"
+                  required />
+              </td>
+              <td id="yearChange" class="calculations">----</td>
+              <td></td>
               <td></td>
             </tr>
-          </table>
-        </tbody>
-      </table>
+            <tr>
+              <td>Nominal Price</td>
+              <td class="input">
+                <input type="number" id="startPrice" onkeyup="performCalculations()" required />
+              </td>
+              <td class="input">
+                <input type="number" id="endPrice" onkeyup="performCalculations()" required />
+              </td>
+              <td id="priceChange" class="calculations">----</td>
+              <td id="percentageChange" class="calculations">----</td>
+            </tr>
+            <tr>
+              <td class="dropDown">
+                <p style="margin: 0px;" class="tooltip">
+                  <span class="tooltiptext">Sources: U.S. Measuringworth.com, U.K. Bank of England</span>
+                  Hourly Compensation
+                </p>
+                <!-- <label for="dropDownWages">Hourly Compensation:</label> -->
+                <select name="dropDownWages" id="dropDownWages" onchange="getHourlyComp()">
+                  <option value="Custom Wage">Custom Wage</option>
+                  <option value="U.S. Blue Collar">U.S. Blue Collar</option>
+                  <option value="U.S. Unskilled">U.S. Unskilled</option>
+                  <option value="U.S. Upskilling">U.S. Upskilling</option>
+                  <option value="U.K. Wage">U.K. Wage</option>
+                </select>
+              </td>
+              <td class="input">
+                <input type="number" id="startComp" onkeyup="performCalculations(); resetCustomWageDropDown();"
+                  required />
+              </td>
+              <td class="input">
+                <input type="number" id="endComp" onkeyup="performCalculations(); resetCustomWageDropDown();"
+                  required />
+              </td>
+              <td id="compChange" class="calculations">----</td>
+              <td id="percentageCompChange" class="calculations">----</td>
+            </tr>
+            <tr>
+              <td class="tooltip">
+                <!-- <i class="fa fa-info" style="font-size:11px" > -->
+                <span class="tooltiptext">Time Price = Nominal Price ÷ Hourly Compensation</span>
+                <!-- </i> -->
+                Time Price in Hours
+              </td>
+              <td id="startTimePrice" class="calculations">----</td>
+              <td id="endTimePrice" class="calculations">----</td>
+              <td id="timePriceChange" class="calculations">----</td>
+              <td id="timePricePercentageChange" class="calculations">----</td>
+            </tr>
+            <tr>
+              <td class="tooltip">
+                <!-- <i class="fa fa-info" style="font-size:11px" > -->
+                <span class="tooltiptext">Start Year Indexed to 1, End Year = Start Time Price divided by End Year Time
+                  Price.</span>
+                <!-- </i> -->
+                Personal-Level Multiplier
+              </td>
+              <td id="personalMultiplierStart" class="calculations">1</td>
+              <td id="personalMultiplierEnd" class="calculations">----</td>
+              <td id="personalMultiplierChange" class="calculations">----</td>
+              <td id="personalMultiplierPercentageChange" class="calculations">----</td>
+            </tr>
+            <tr>
+              <td class="dropDown">
+                <p style="margin: 0px;" class="tooltip">
+                  <span class="tooltiptext">Source: U.N. Population Division, estimates and projections</span>
+                  Population
+                </p>
+                <!-- <label for="dropDownPopulation">Population:</label> -->
+                <select name="dropDownPopulation" id="dropDownPopulation" onchange="getPopulation()">
+                  <option value="Individual">Individual</option>
+                  <option value="Custom Population">Custom Population</option>
+                  <option value="U.S.">U.S. (in millions)</option>
+                  <option value="World">World (in millions)</option>
+                </select>
+              </td>
+              <td class="input">
+                <input type="number" id="startPop" value="1"
+                  onkeyup="performCalculations(); resetCustomPopulationDropDown();"
+                  required />
+              </td>
+              <td class="input">
+                <input type="number" id="endPop" value="1"
+                  onkeyup="performCalculations(); resetCustomPopulationDropDown();"
+                  required />
+              </td>
+              <td id="popChange" class="calculations">----</td>
+              <td id="percentagePopChange" class="calculations">----</td>
+            </tr>
+            <tr>
+              <td class="tooltip">
+                <!-- <i class="fa fa-info" style="font-size:11px"> -->
+                <span class="tooltiptext">Start Year Indexed to 1, End Year = End Year Time Price multiplied by (1 plus
+                  the percentage change in population)</span>
+                <!-- </i> -->
+                Population-Level Multiplier
+              </td>
+              <td id="populationMultiplierStart" class="calculations">1</td>
+              <td id="populationMultiplierEnd" class="calculations">----</td>
+              <td id="populationMultiplierChange" class="calculations">----</td>
+              <td id="populationMultiplierPercentageChange" class="calculations">----</td>
+            </tr>
+            <tr>
+              <td></td>
+              <th class="levels">Personal<br>Level</th>
+              <th class="levels">Population<br>Level</th>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tooltip">
+                <!-- <i class="fa fa-info" style="font-size:11px"> -->
+                <span class="tooltiptext">End Year Multiplier raised to the power of (1 divided by Years) - 1</span>
+                <!-- </i> -->
+                Compound Annual Growth Rate
+              </td>
+              <td id="personalGrowthRate" class="calculations">----</td>
+              <td id="populationGrowthRate" class="calculations">----</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tooltip">
+                <!-- <i class="fa fa-info" style="font-size:11px"> -->
+                <span class="tooltiptext">70 divided by Compound Annual Growth Rate</span>
+                <!-- </i> -->
+                Years to Double
+              </td>
+              <td id="personalDoubleYears" class="calculations">----</td>
+              <td id="populationDoubleYears" class="calculations">----</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tooltip">
+                <span class="tooltiptext">Percentage Change in abundance divided by percentage change in population
+                </span>
+                Elasticity of Population
+              </td>
+              <td id="personalElasticity" class="calculations">----</td>
+              <td id="populationElasticity" class="calculations">----</td>
+            </tr>
+            <table id="table2">
+              <tr>
+                <td id="personalMultiplierPercentageChangeIllustration" class="calculations">
+                  ---
+                </td>
+                <td rowspan="3" id="boxes">
+                  <div id="greenBox"><span id="endYearBoxNumber">----</span></div>
+                  <div id="redBox"><span id="startYearBoxNumber">----</span></div>
+                </td>
+                <td rowspan="3" id="populationMultiplierPercentageChangeIllustrationAndText">
+                  <p id="PRA">Population Resource Abundance</p>
+                  <p id="populationMultiplierPercentageChangeIllustration" class="calculations">---</p>
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="2">Personal Resource Abundance</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td id="key">
+                  <div id="tinyGreenBox"></div>
+                  <p id="endYearKey">End</p>
+                  <div id="tinyRedBox"></div>
+                  <p id="startYearKey">Start</p>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td id="bottomLabel">
+                  <div id="labelPopulation">Population</div>
+                  <div id="percentagePopChangeIllustration" class="calculations">---</div>
+                </td>
+                <td></td>
+              </tr>
+            </table>
+          </tbody>
+        </table>
+      </section>
     </form>
   </main>
   <script src="scripts/calculations.js"></script>
 </body>
+
 </html>
