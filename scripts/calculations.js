@@ -9,10 +9,68 @@ document.getElementById("clear").onclick = function() {clear()};
 // Loads JSON
 data = null;
 window.addEventListener("load", (event) => {
+  toggleCalculatorState();
+
   data = fetch('./Data/data.json')
     .then((response) => response.json())
     .then((result) => (this.data = result));
 });
+
+function toggleCalculatorState() {
+  var title = document.getElementById("title");
+
+  var basicRadio = document.getElementById("basic");
+  var advancedRadio = document.getElementById("advanced");
+
+  var basicCalc = document.getElementById("basicCalc");
+  var advancedCalc = document.getElementById("advancedCalc");
+
+  if (basicRadio.checked) {
+    basicCalc.classList.remove("hidden");
+    advancedCalc.classList.add("hidden");
+    title.innerText = "Time Price Calculator";
+    document.querySelector("form").style.minWidth = "500px";
+  } else if (advancedRadio.checked) {
+    advancedCalc.classList.remove("hidden");
+    basicCalc.classList.add("hidden");
+    title.innerText = "Abundance Calculator";
+    document.querySelector("form").style.minWidth = "900px";
+  }
+}
+
+function getHourlyCompBasic(){
+  var selectElementBasic = document.getElementById('dropDownWagesBasic');
+  let startCompBasic;
+  let endCompBasic;
+
+  switch (selectElementBasic.value) {
+    case "Custom Wage":
+      startCompBasic = document.getElementById("startCompBasic").value;
+      endCompBasic = document.getElementById("endCompBasic").value;
+      break;
+    case "U.S. Blue Collar":
+      startCompBasic = data.data[startYearBasic.value - 1800].usBlueCollar;
+      endCompBasic = data.data[endYearBasic.value - 1800].usBlueCollar;
+      break;
+    case "U.S. Unskilled":
+      startCompBasic = data.data[startYearBasic.value - 1800].usUnskilled;
+      endCompBasic = data.data[endYearBasic.value - 1800].usUnskilled;
+      break;
+    case "U.S. Upskilling":
+      startCompBasic = data.data[startYearBasic.value - 1800].usUnskilled;
+      endCompBasic = data.data[endYearBasic.value - 1800].usBlueCollar;
+      break;
+    case "U.K. Wage":
+      startCompBasic = data.data[startYearBasic.value - 1800].ukWage;
+      endCompBasic = data.data[endYearBasic.value - 1800].ukWage;
+      break;
+  }
+  
+  document.getElementById("startCompBasic").value = startCompBasic.toFixed(2).toString();
+  document.getElementById("endCompBasic").value = endCompBasic.toFixed(2).toString();
+
+  performBasicCaculations();
+}
 
 function getHourlyComp(){
     var selectElement = document.getElementById('dropDownWages');
@@ -52,7 +110,7 @@ function getHourlyComp(){
     document.getElementById("percentageCompChange").innerHTML = percentageCompChange.toFixed(1)+"%";
 
     performCalculations();
-  }
+}
 
 function getPopulation(){
   var selectElement2 = document.getElementById('dropDownPopulation');
@@ -113,6 +171,53 @@ function resetCustomPopulationDropDown() {
 
 function resetCustomWageDropDown() {
   document.getElementById('dropDownWages').value = "Custom Wage";
+}
+
+function resetCustomWageDropDownBasic() {
+  document.getElementById('dropDownWagesBasic').value = "Custom Wage";
+}
+
+function performBasicCaculations() {
+  // Year
+  var startYearBasic = document.getElementById("startYearBasic").value;
+  var endYearBasic = document.getElementById("endYearBasic").value;
+  var yearChangeBasic = endYearBasic - startYearBasic;
+
+  // Price
+  var startPriceBasic = document.getElementById("startPriceBasic").value;
+  var endPriceBasic = document.getElementById("endPriceBasic").value;
+  
+  // Hourly Compensation
+  var startCompBasic = document.getElementById("startCompBasic").value;
+  var endCompBasic = document.getElementById("endCompBasic").value;    
+
+  // Time Price
+  if (endCompBasic != "") {
+    var startTimePriceBasic = startPriceBasic / startCompBasic
+    var endTimePriceBasic = endPriceBasic / endCompBasic
+    var timePriceChangeBasic = endTimePriceBasic - startTimePriceBasic
+    var timePricePercentageChangeBasic = timePriceChangeBasic / startTimePriceBasic * 100;
+    
+    document.getElementById("startTimePriceBasic").innerHTML = startTimePriceBasic.toFixed(2);
+    document.getElementById("endTimePriceBasic").innerHTML = endTimePriceBasic.toFixed(3);
+
+    // Percentage Change in the Time Price
+    document.getElementById("timePricePercentageChangeBasic").innerHTML = timePricePercentageChangeBasic.toFixed(1)+"%";
+    
+    // Percentage Change in Abundance
+    multiplierEnd = startTimePriceBasic / endTimePriceBasic;
+    multiplierChange = multiplierEnd - 1;
+    percentageChangeAbundance = multiplierChange / 1 * 100;
+  
+    if (percentageChangeAbundance >= 0) {
+      document.getElementById("percentageChangeAbundance").innerHTML =  "+" + percentageChangeAbundance.toFixed(1)+"%";
+    } else {document.getElementById("percentageChangeAbundance").innerHTML = percentageChangeAbundance.toFixed(1)+"%";}
+
+    // Compound Annual Growth Rate
+    var basicGrowthRate = ((multiplierEnd/1)**(1/yearChangeBasic)-1) * 100;
+    document.getElementById("basicGrowthRate").innerHTML = basicGrowthRate.toFixed(2)+"%";
+
+  }
 }
 
 function performCalculations() {
@@ -242,7 +347,6 @@ function performCalculations() {
         changeBoxSize(personalMultiplierPercentageChange, percentagePopChange);
       }
     
-
       // Dashboard
       if (timePricePercentageChange > 0) {
         document.getElementById("timePricePercentageChangeDB").innerHTML = "+" + timePricePercentageChange.toFixed(1)+"%";
@@ -264,7 +368,7 @@ function performCalculations() {
         document.getElementById("populationElasticityDB").innerHTML = populationElasticity.toFixed(2);
       } else {document.getElementById("populationElasticityDB").innerHTML = "---";}
     }
-  }
+}
 
 function clear()
 {
@@ -315,7 +419,7 @@ function clear()
     document.getElementById("populationElasticityDB").innerHTML = "----";
 
     resetIllustration();
-  }
+}
 
 function resetIllustration(){
   // Illustration Dimensions
@@ -338,7 +442,9 @@ function resetIllustration(){
 }
 
 function allInputFieldsNotEmpty() {
-  const inputFields = document.querySelectorAll('input[type="number"], textarea');
+  const advancedCalc = document.getElementById("advancedCalc");
+
+  const inputFields = advancedCalc.querySelectorAll('input[type="number"], textarea');
   
   for (const inputField of inputFields) {
     if (inputField.value.trim() === '') {
