@@ -29,10 +29,12 @@ function toggleCalculatorState() {
     basicCalc.classList.remove("hidden");
     advancedCalc.classList.add("hidden");
     title.innerText = "Time Price Calculator";
+    document.querySelector("form").style.minWidth = "500px";
   } else if (advancedRadio.checked) {
     advancedCalc.classList.remove("hidden");
     basicCalc.classList.add("hidden");
     title.innerText = "Abundance Calculator";
+    document.querySelector("form").style.minWidth = "900px";
   }
 }
 
