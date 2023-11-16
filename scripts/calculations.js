@@ -150,12 +150,8 @@ function getPopulation(){
     endPop = parseInt(endPop, 10);
   }
 
-  if (startPop.length > 6){
-    document.getElementById("startPop").value = (startPop/1000000).toFixed(3);
-  } else {document.getElementById("startPop").value = startPop;}
-  if (endPop.length > 6){
-    document.getElementById("endPop").value = (endPop/1000000).toFixed(3);
-  } else {document.getElementById("endPop").value = endPop;}
+  document.getElementById("startPop").value = (startPop/1000000).toFixed(3);
+  document.getElementById("endPop").value = (endPop/1000000).toFixed(3);
 
   var popChange = endPop - startPop;
   var percentagePopChange = popChange / startPop * 100;
