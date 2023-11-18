@@ -150,14 +150,28 @@ function getPopulation(){
     endPop = parseInt(endPop, 10);
   }
 
-  document.getElementById("startPop").value = (startPop/1000000).toFixed(3);
-  document.getElementById("endPop").value = (endPop/1000000).toFixed(3);
+  if (selectElement2.value != "Individual" && selectElement2.value != "Custom Population") {
+    document.getElementById("startPop").value = (startPop/1000000).toFixed(3);
+    document.getElementById("endPop").value = (endPop/1000000).toFixed(3);
 
-  var popChange = endPop - startPop;
-  var percentagePopChange = popChange / startPop * 100;
+    var popChange = endPop - startPop;
+    var percentagePopChange = popChange / startPop * 100;
+      
+    document.getElementById("popChange").innerHTML = popChange;
+    document.getElementById("percentagePopChange").innerHTML = percentagePopChange.toFixed(1)+"%";
+  } else {
+    document.getElementById("startPop").value = startPop
+    document.getElementById("endPop").value = endPop
     
-  document.getElementById("popChange").innerHTML = popChange;
-  document.getElementById("percentagePopChange").innerHTML = percentagePopChange.toFixed(1)+"%";
+    var popChange = endPop - startPop;
+    var percentagePopChange = popChange / startPop * 100;
+      
+    if (startPop != "" && endPop != "") {
+      document.getElementById("popChange").innerHTML = popChange;
+      document.getElementById("percentagePopChange").innerHTML = percentagePopChange.toFixed(1)+"%";
+    }
+  }
+
 
   performCalculations();
 }
@@ -188,18 +202,22 @@ function performBasicCaculations() {
   var startCompBasic = document.getElementById("startCompBasic").value;
   var endCompBasic = document.getElementById("endCompBasic").value;    
 
-  // Time Price
   if (endCompBasic != "") {
     var startTimePriceBasic = startPriceBasic / startCompBasic
     var endTimePriceBasic = endPriceBasic / endCompBasic
     var timePriceChangeBasic = endTimePriceBasic - startTimePriceBasic
     var timePricePercentageChangeBasic = timePriceChangeBasic / startTimePriceBasic * 100;
     
+    // Time Price
     document.getElementById("startTimePriceBasic").innerHTML = startTimePriceBasic.toFixed(2);
     document.getElementById("endTimePriceBasic").innerHTML = endTimePriceBasic.toFixed(3);
 
     // Percentage Change in the Time Price
     document.getElementById("timePricePercentageChangeBasic").innerHTML = timePricePercentageChangeBasic.toFixed(1)+"%";
+
+    // Abundance Multiplier
+    basicMultiplier = startTimePriceBasic / endTimePriceBasic;
+    document.getElementById("basicMultiplier").innerHTML = basicMultiplier.toFixed(2);
     
     // Percentage Change in Abundance
     multiplierEnd = startTimePriceBasic / endTimePriceBasic;
@@ -213,8 +231,9 @@ function performBasicCaculations() {
     // Compound Annual Growth Rate
     var basicGrowthRate = ((multiplierEnd/1)**(1/yearChangeBasic)-1) * 100;
     document.getElementById("basicGrowthRate").innerHTML = basicGrowthRate.toFixed(2)+"%";
-
+    
   }
+
 }
 
 function performCalculations() {
