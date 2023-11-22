@@ -409,7 +409,7 @@ function clear()
     document.getElementById("personalMultiplierChange").innerHTML = "----";
     document.getElementById("personalMultiplierPercentageChange").innerHTML = "----";
 
-    // document.getElementById("populationMultiplierStart").innerHTML = "----";
+    document.getElementById("populationMultiplierStart").innerHTML = "----";
     document.getElementById("populationMultiplierEnd").innerHTML = "----";
     document.getElementById("populationMultiplierChange").innerHTML = "----";
     document.getElementById("populationMultiplierPercentageChange").innerHTML = "----";
