@@ -4,7 +4,8 @@
 // });
 
 
-document.getElementById("clear").onclick = function() {clear()};
+document.getElementById("clearBasic").onclick = function() {clearBasic()};
+document.getElementById("clearAdvanced").onclick = function() {clearAdvanced()};
 
 
 function toggleCalculatorState() {
@@ -386,55 +387,88 @@ function performCalculations() {
     }
 }
 
-function clear()
-{
-    document.getElementById("yearChange").innerHTML = "----";
-    
-    document.getElementById("priceChange").innerHTML = "----"
-    document.getElementById("percentageChange").innerHTML = "----";
-    
-    document.getElementById("compChange").innerHTML = "----";
-    document.getElementById("percentageCompChange").innerHTML = "----";
-    
-    document.getElementById("popChange").innerHTML = "----";
-    document.getElementById("percentagePopChange").innerHTML = "----";
-   
-    document.getElementById("startTimePrice").innerHTML = "----";
-    document.getElementById("endTimePrice").innerHTML = "----";
-    document.getElementById("timePriceChange").innerHTML = "----";
-    document.getElementById("timePricePercentageChange").innerHTML = "----";
-    
-    document.getElementById("personalMultiplierStart").innerHTML = "----";
-    document.getElementById("personalMultiplierEnd").innerHTML = "----";
-    document.getElementById("personalMultiplierChange").innerHTML = "----";
-    document.getElementById("personalMultiplierPercentageChange").innerHTML = "----";
+function clearBasic() {
+  var section = document.getElementById("basicCalc");
+  // Get all the input fields within the specified section
+  var fields = section.getElementsByTagName("input");
+  // Reset each input field within the section
+  for (var i = 0; i < fields.length; i++) {
+    fields[i].value = '';
+  }
 
-    document.getElementById("populationMultiplierStart").innerHTML = "----";
-    document.getElementById("populationMultiplierEnd").innerHTML = "----";
-    document.getElementById("populationMultiplierChange").innerHTML = "----";
-    document.getElementById("populationMultiplierPercentageChange").innerHTML = "----";
+  document.getElementById("startTimePriceBasic").innerHTML = "----";
+  document.getElementById("endTimePriceBasic").innerHTML = "----";
 
-    document.getElementById("personalGrowthRate").innerHTML = "----";
-    document.getElementById("populationGrowthRate").innerHTML = "----";
+  document.getElementById("timePricePercentageChangeBasic").innerHTML = "---";
+  document.getElementById("basicMultiplier").innerHTML = "---";
+  document.getElementById("percentageChangeAbundance").innerHTML = "---";
+  document.getElementById("basicGrowthRate").innerHTML = "---";
+}
 
-    document.getElementById("personalDoubleYears").innerHTML = "----";
-    document.getElementById("populationDoubleYears").innerHTML = "----";
+function clearAdvanced() {
+  var section = document.getElementById("advancedCalc");
+  // Get all the input fields within the specified section
+  var fields = section.getElementsByTagName("input");
+  // Reset each input field within the section
+  for (var i = 0; i < fields.length; i++) {
+    fields[i].value = '';
+  }
+  // Population values
+  document.getElementById("startPop").value = "1"
+  document.getElementById("endPop").value = "1"
 
-    document.getElementById("personalElasticity").innerHTML = "----";
-    document.getElementById("populationElasticity").innerHTML = "----";
-    
-    // Dashboard
-    document.getElementById("timePricePercentageChangeDB").innerHTML = "----";
-    document.getElementById("personalMultiplierPercentageChangeDB").innerHTML = "----";
-    document.getElementById("personalGrowthRateDB").innerHTML = "----";
-    document.getElementById("personalElasticityDB").innerHTML = "----";
-    
-    document.getElementById("percentagePopChangeDB").innerHTML = "----";
-    document.getElementById("populationMultiplierPercentageChangeDB").innerHTML = "----";
-    document.getElementById("populationGrowthRateDB").innerHTML = "----";
-    document.getElementById("populationElasticityDB").innerHTML = "----";
+  // Drop-down menus
+  document.getElementById("dropDownWages").value = "Custom Wage";
+  document.getElementById("dropDownPopulation").value = "Individual";
 
-    resetIllustration();
+  // Calculations
+  document.getElementById("yearChange").innerHTML = "----";
+  
+  document.getElementById("priceChange").innerHTML = "----"
+  document.getElementById("percentageChange").innerHTML = "----";
+  
+  document.getElementById("compChange").innerHTML = "----";
+  document.getElementById("percentageCompChange").innerHTML = "----";
+  
+  document.getElementById("popChange").innerHTML = "----";
+  document.getElementById("percentagePopChange").innerHTML = "----";
+  
+  document.getElementById("startTimePrice").innerHTML = "----";
+  document.getElementById("endTimePrice").innerHTML = "----";
+  document.getElementById("timePriceChange").innerHTML = "----";
+  document.getElementById("timePricePercentageChange").innerHTML = "----";
+  
+  document.getElementById("personalMultiplierStart").innerHTML = "1";
+  document.getElementById("personalMultiplierEnd").innerHTML = "----";
+  document.getElementById("personalMultiplierChange").innerHTML = "----";
+  document.getElementById("personalMultiplierPercentageChange").innerHTML = "----";
+
+  document.getElementById("populationMultiplierStart").innerHTML = "1";
+  document.getElementById("populationMultiplierEnd").innerHTML = "----";
+  document.getElementById("populationMultiplierChange").innerHTML = "----";
+  document.getElementById("populationMultiplierPercentageChange").innerHTML = "----";
+
+  document.getElementById("personalGrowthRate").innerHTML = "----";
+  document.getElementById("populationGrowthRate").innerHTML = "----";
+
+  document.getElementById("personalDoubleYears").innerHTML = "----";
+  document.getElementById("populationDoubleYears").innerHTML = "----";
+
+  document.getElementById("personalElasticity").innerHTML = "----";
+  document.getElementById("populationElasticity").innerHTML = "----";
+  
+  // Dashboard
+  document.getElementById("timePricePercentageChangeDB").innerHTML = "----";
+  document.getElementById("personalMultiplierPercentageChangeDB").innerHTML = "----";
+  document.getElementById("personalGrowthRateDB").innerHTML = "----";
+  document.getElementById("personalElasticityDB").innerHTML = "----";
+  
+  document.getElementById("percentagePopChangeDB").innerHTML = "----";
+  document.getElementById("populationMultiplierPercentageChangeDB").innerHTML = "----";
+  document.getElementById("populationGrowthRateDB").innerHTML = "----";
+  document.getElementById("populationElasticityDB").innerHTML = "----";
+
+  resetIllustration();
 }
 
 function resetIllustration(){
