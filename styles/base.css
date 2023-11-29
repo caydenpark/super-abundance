@@ -447,3 +447,16 @@ select {
 .calculations {
   font-weight: 550;
 }
+
+#resultButtons {
+  margin-bottom: 20px;
+  margin-right: 20px;
+  text-align: right;
+}
+
+#print {
+  margin-right: 10px;
+}
+#jpeg {
+
+}

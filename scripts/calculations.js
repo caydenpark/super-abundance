@@ -1,8 +1,3 @@
-// document.querySelector('button').addEventListener('click', (event) => {
-//     event.preventDefault();
-//     performCaculations();
-// });
-
 
 document.getElementById("clearBasic").onclick = function() {clearBasic()};
 document.getElementById("clearAdvanced").onclick = function() {clearAdvanced()};
