@@ -12,6 +12,7 @@ I created this web app as a resource for people to use to educate themselves on 
 
 - [CodePen](https://codepen.io)
 - [W3 Schools](https://www.w3schools.com/)
+- [html2canvas](https://html2canvas.hertzen.com/)
 
 # Future Work
 
