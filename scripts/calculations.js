@@ -236,6 +236,10 @@ function performBasicCaculations() {
     var basicGrowthRate = ((multiplierEnd/1)**(1/yearChangeBasic)-1) * 100;
     document.getElementById("basicGrowthRate").innerHTML = basicGrowthRate.toFixed(2)+"%";
     
+    // Years to Double
+    var basicDoubleYears = 70/(basicGrowthRate.toFixed(2));
+    
+    document.getElementById("basicDoubleYears").innerHTML = basicDoubleYears.toFixed(2);
   }
 
 }
@@ -406,6 +410,7 @@ function clearBasic() {
   document.getElementById("basicMultiplier").innerHTML = "---";
   document.getElementById("percentageChangeAbundance").innerHTML = "---";
   document.getElementById("basicGrowthRate").innerHTML = "---";
+  document.getElementById("basicDoubleYears").innerHTML = "---";
 }
 
 function clearAdvanced() {
