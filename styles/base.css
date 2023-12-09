@@ -88,17 +88,16 @@ body {
   left: 100px;
 }
 
-#basicCalc button {
-  background-color: #929292;
-  color: #f7f8fa;
+button {
+  background-color: #dfdfdf;
+  color: rgb(61, 61, 61);
   border: none;
   text-align: center;
   font-size: 15px;
-  height: 50%;
-  border-radius: 7px;
-  width: 35%;
+  font-weight: 500;
+  border-radius: 5px;
+  /* width: 35%; */
   padding: 5px;
-  margin-right: 45px;
 }
 
 #basicCalc {
@@ -287,19 +286,6 @@ th:nth-child(n + 4) {
 
 .levels {
   border-bottom: .05rem solid black;
-}
-
-#advancedCalc button {
-  background-color: #929292;
-  color: #f7f8fa;
-  border: none;
-  text-align: center;
-  font-size: 15px;
-  height: 50%;
-  border-radius: 7px;
-  width: 20%;
-  padding: 5px;
-  margin-right: 45px;
 }
 
 select {
