@@ -40,7 +40,6 @@
           <thead>
             <tr>
               <td>
-                <button type="button" id="clearBasic">Clear</button>
                 Product
               </td>
               <td class="input" colspan="2">
@@ -172,7 +171,6 @@
           <thead>
             <tr>
               <td>
-                <button type="button" id="clearAdvanced">Clear</button>
                 Product
               </td>
               <td class="input" colspan="2">
@@ -386,6 +384,8 @@
         </table>
       </section>
       <div id="resultButtons">
+        <button type="button" id="clearBasic">Clear</button>
+        <button type="button" id="clearAdvanced" class="hidden">Clear</button>
         <button type="button" id="print" onclick="window.print()">Print</button>
         <button type="button" id="jpeg" onclick="window.generateJPEG()">Create JPEG</button>
       </div>

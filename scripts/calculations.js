@@ -8,18 +8,26 @@ function toggleCalculatorState() {
   
   var basicRadio = document.getElementById("basic");
   var advancedRadio = document.getElementById("advanced");
+  var basicClearButton = document.getElementById("clearBasic")
   
   var basicCalc = document.getElementById("basicCalc");
   var advancedCalc = document.getElementById("advancedCalc");
+  var advancedClearButton = document.getElementById("clearAdvanced");
   
   if (basicRadio.checked) {
     basicCalc.classList.remove("hidden");
     advancedCalc.classList.add("hidden");
+    basicClearButton.classList.remove("hidden");
+    advancedClearButton.classList.add("hidden");
+
     title.innerText = "Time Price Calculator";
     document.querySelector("form").style.minWidth = "500px";
   } else if (advancedRadio.checked) {
     advancedCalc.classList.remove("hidden");
     basicCalc.classList.add("hidden");
+    advancedClearButton.classList.remove("hidden");
+    basicClearButton.classList.add("hidden");
+
     title.innerText = "Abundance Calculator";
     document.querySelector("form").style.minWidth = "900px";
   }
