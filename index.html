@@ -43,7 +43,7 @@
                 Product
               </td>
               <td class="input" colspan="2">
-                <input type="text" id="productBasic" style="width:95%"/>
+                <input type="text" id="productBasic" class="sticky-field" style="width:95%"/>
               </td>
               <td></td>
             </tr>
@@ -57,21 +57,21 @@
             <tr>
               <td>Year</td>
               <td class="input">
-                <input type="number" id="startYearBasic"
+                <input type="number" id="startYearBasic" class="sticky-field"
                   onkeyup="performBasicCaculations(); getHourlyCompBasic(); getPopulationBasic();" required />
               </td>
               <td class="input">
-                <input type="number" id="endYearBasic"
+                <input type="number" id="endYearBasic" class="sticky-field"
                   onkeyup="performBasicCaculations(); getHourlyCompBasic(); getPopulationBasic();" required />
               </td>
             </tr>
             <tr>
               <td>Nominal Price</td>
               <td class="input">
-                <input type="number" id="startPriceBasic" onkeyup="performBasicCaculations()" required />
+                <input type="number" id="startPriceBasic" class="sticky-field" onkeyup="performBasicCaculations()" required />
               </td>
               <td class="input">
-                <input type="number" id="endPriceBasic" onkeyup="performBasicCaculations()" required />
+                <input type="number" id="endPriceBasic" class="sticky-field" onkeyup="performBasicCaculations()" required />
               </td>
             </tr>
             <tr>
@@ -80,7 +80,7 @@
                   <span class="tooltiptext">Sources: U.S. Measuringworth.com, U.K. Bank of England</span>
                   Hourly Compensation
                 </p>
-                <select name="dropDownWages" id="dropDownWagesBasic" onchange="getHourlyCompBasic()">
+                <select name="dropDownWages" id="dropDownWagesBasic" onchange="getHourlyCompBasic(); getHourlyComp();">
                   <option value="Custom Wage">Custom Wage</option>
                   <option value="U.S. Blue Collar">U.S. Blue Collar</option>
                   <option value="U.S. Unskilled">U.S. Unskilled</option>
@@ -89,12 +89,12 @@
                 </select>
               </td>
               <td class="input">
-                <input type="number" id="startCompBasic"
+                <input type="number" id="startCompBasic" class="sticky-field"
                   onkeyup="performBasicCaculations(); resetCustomWageDropDownBasic();"
                   required />
               </td>
               <td class="input">
-                <input type="number" id="endCompBasic"
+                <input type="number" id="endCompBasic" class="sticky-field"
                   onkeyup="performBasicCaculations(); resetCustomWageDropDownBasic();" required />
               </td>
             </tr>
@@ -178,7 +178,7 @@
                 Product
               </td>
               <td class="input" colspan="2">
-                <input type="text" id="productAdvanced"/>
+                <input type="text" id="productAdvanced" class="sticky-field"/>
               </td>
               <td></td>
               <td></td>
@@ -196,11 +196,11 @@
             <tr>
               <td>Year</td>
               <td class="input">
-                <input type="number" id="startYear" onkeyup="performCalculations(); getHourlyComp(); getPopulation();"
+                <input type="number" id="startYear" class="sticky-field" onkeyup="performCalculations(); getHourlyComp(); getPopulation();"
                   required />
               </td>
               <td class="input">
-                <input type="number" id="endYear" onkeyup="performCalculations(); getHourlyComp(); getPopulation();"
+                <input type="number" id="endYear" class="sticky-field" onkeyup="performCalculations(); getHourlyComp(); getPopulation();"
                   required />
               </td>
               <td id="yearChange" class="calculations">----</td>
@@ -210,10 +210,10 @@
             <tr>
               <td>Nominal Price</td>
               <td class="input">
-                <input type="number" id="startPrice" onkeyup="performCalculations()" required />
+                <input type="number" id="startPrice" class="sticky-field" onkeyup="performCalculations()" required />
               </td>
               <td class="input">
-                <input type="number" id="endPrice" onkeyup="performCalculations()" required />
+                <input type="number" id="endPrice" class="sticky-field" onkeyup="performCalculations()" required />
               </td>
               <td id="priceChange" class="calculations">----</td>
               <td id="percentageChange" class="calculations">----</td>
@@ -225,7 +225,7 @@
                   Hourly Compensation
                 </p>
                 <!-- <label for="dropDownWages">Hourly Compensation:</label> -->
-                <select name="dropDownWages" id="dropDownWages" onchange="getHourlyComp()">
+                <select name="dropDownWages" id="dropDownWages" onchange="getHourlyComp(); getHourlyCompBasic();">
                   <option value="Custom Wage">Custom Wage</option>
                   <option value="U.S. Blue Collar">U.S. Blue Collar</option>
                   <option value="U.S. Unskilled">U.S. Unskilled</option>
@@ -234,11 +234,11 @@
                 </select>
               </td>
               <td class="input">
-                <input type="number" id="startComp" onkeyup="performCalculations(); resetCustomWageDropDown();"
+                <input type="number" id="startComp" class="sticky-field" onkeyup="performCalculations(); resetCustomWageDropDown();"
                   required />
               </td>
               <td class="input">
-                <input type="number" id="endComp" onkeyup="performCalculations(); resetCustomWageDropDown();"
+                <input type="number" id="endComp" class="sticky-field" onkeyup="performCalculations(); resetCustomWageDropDown();"
                   required />
               </td>
               <td id="compChange" class="calculations">----</td>

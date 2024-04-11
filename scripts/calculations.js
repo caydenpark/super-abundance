@@ -2,6 +2,17 @@
 document.getElementById("clearBasic").onclick = function() {clearBasic()};
 document.getElementById("clearAdvanced").onclick = function() {clearAdvanced()};
 
+// Loads JSON
+data = null;
+window.addEventListener("load", (event) => {
+  toggleCalculatorState();
+  
+  data = fetch('./Data/data.json')
+  .then((response) => response.json())
+  .then((result) => (this.data = result));
+});
+
+const stickyFields = document.querySelectorAll('.sticky-field');
 
 function toggleCalculatorState() {
   var title = document.getElementById("title");
@@ -31,17 +42,57 @@ function toggleCalculatorState() {
     title.innerText = "Abundance Calculator";
     document.querySelector("form").style.minWidth = "900px";
   }
+  synchronizeValues();
+  performBasicCaculations();
+  performCalculations();
+  // getHourlyCompBasic();
+  // getHourlyComp();
 }
 
-// Loads JSON
-data = null;
-window.addEventListener("load", (event) => {
-  toggleCalculatorState();
+function synchronizeValues() {
+  synchronizeFields("productAdvanced", "productBasic");
+  synchronizeFields("startYear", "startYearBasic");
+  synchronizeFields("endYear", "endYearBasic");
+  synchronizeFields("startPrice", "startPriceBasic");
+  synchronizeFields("endPrice", "endPriceBasic");
+  synchronizeFields("startComp", "startCompBasic");
+  synchronizeFields("endComp", "endCompBasic");
+  synchronizeFields("dropDownWages", "dropDownWagesBasic", true);
+  synchronizeFields("dropDownWagesBasic", "dropDownWages", true);
+}
 
-  data = fetch('./Data/data.json')
-    .then((response) => response.json())
-    .then((result) => (this.data = result));
+function synchronizeFields(sourceId, targetId, isSelect) {
+  var sourceField = document.getElementById(sourceId);
+  var targetField = document.getElementById(targetId);
+
+  // Update target field when source field changes
+  sourceField.addEventListener("input", function() {
+    if (isSelect) {
+        targetField.selectedIndex = sourceField.selectedIndex;
+    } else {
+        targetField.value = sourceField.value;
+    }
+    storeValues(); // Store updated values
 });
+
+// Update source field when target field changes
+targetField.addEventListener("input", function() {
+    if (isSelect) {
+        sourceField.selectedIndex = targetField.selectedIndex;
+    } else {
+        sourceField.value = targetField.value;
+    }
+    storeValues(); // Store updated values
+});
+}
+
+// Function to store input field values in localStorage
+function storeValues() {
+  var fields = document.querySelectorAll("input[type='text']");
+  fields.forEach(function(field) {
+      localStorage.setItem(field.id, field.value);
+  });
+}
 
 function getHourlyCompBasic(){
   var selectElementBasic = document.getElementById('dropDownWagesBasic');
