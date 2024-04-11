@@ -45,8 +45,6 @@ function toggleCalculatorState() {
   synchronizeValues();
   performBasicCaculations();
   performCalculations();
-  // getHourlyCompBasic();
-  // getHourlyComp();
 }
 
 function synchronizeValues() {
